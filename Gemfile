@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
+#xml parser
+gem 'nokogiri'
 
 #http client
 gem 'faraday', '~> 0.8.8'

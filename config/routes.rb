@@ -5,7 +5,7 @@ DevMusicCom::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'index#index'
   #post '/' => 'index#search'
-  post '/', :to => 'index#search'
+  post '/', :to => 'index#get'
 
   resources :index, defaults: {format: :json}, only: [:index]  do
 

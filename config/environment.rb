@@ -6,3 +6,5 @@ DevMusicCom::Application.initialize!
 
 APP_CONFIG = YAML.load_file("#{Rails.root}/config/config.yml")
 
+require 'settings'
+
