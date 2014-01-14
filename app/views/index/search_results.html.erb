@@ -8,6 +8,25 @@
   <div class="row" ng-controller="resultsController">
         doc results: <%=@doc%>
     <br/>
-        xml result: <%= @xml %>
+    <br/>
+    <% @output.each_with_index do |page, index| %>
+        artist name: <%= page.name%>
+           </br>
+        artist id: <%= page.id%>
+        </br>
+        <%= page.country_id%>
+        </br>
+        country: <%= page.country_name%>
+        </br>
+        area: <%= page.area_name%>
+        </br>
+        inception: <%= page.start%>
+        </br>
+        end: <%= page.stop%>
+        </br>
+        genre: <%= page.genre%>
+        <hr/>
+    <% end %>
+
   </div>
 </div>
