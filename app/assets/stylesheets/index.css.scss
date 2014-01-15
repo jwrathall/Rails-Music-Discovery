@@ -1,3 +1,23 @@
 // Place all the styles related to the index controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+  color:#c6c8c8;
+}
+hr{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #5e6061;
+}
+.jumbotron{
+  background-color: #424546;
+  border:solid 1px #2f3233;
+}
+.jumbotron h1{
+  color:#5a5d5e;
+}
+.well{
+  background-color: #4d5051;
+  border-color: #727373;
+}
