@@ -7,7 +7,7 @@ etc.
 
 It uses musicbrainz.org as the search api. Later it will also use some other  music api's. One step at a time.
 
-bootstrap 3.2,
+bootstrap 3,
 rails 4,
 ruby 2.1.0,
 xpath,
