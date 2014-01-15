@@ -7,10 +7,10 @@ etc.
 
 It uses musicbrainz.org as the search api. Later it will also use some other  music api's. One step at a time.
 
-bootstrap 3.2,<br/>
-rails 4,<br/>
-ruby 2.1.0,<br/>
-xpath,<br/>
-angular.js,<br/>
-topcoat.io<br/>
+bootstrap 3.2,
+rails 4,
+ruby 2.1.0,
+xpath,
+angular.js,
+topcoat.io
 <tt>rake doc:app</tt>.
