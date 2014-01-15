@@ -1,28 +1,9 @@
 == README
+My music app. The initial concept was to create a service that reminded the user if their fav band had an upcoming album.
+I always seem to miss album releases. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Now, the app has sort of morphed into a reminder service plus a music discovery service too. Things like bootlegs, album covers
+etc.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
+It useses musicbrainz.org as the search api. Later it will also use some other  music api's. One step at a time.
 <tt>rake doc:app</tt>.
