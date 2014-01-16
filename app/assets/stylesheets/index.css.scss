@@ -1,8 +1,58 @@
 // Place all the styles related to the index controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@font-face {
+  font-family: 'Icomatic';
+  src: asset-url('icomatic.eot');
+  src: asset-url('icomatic.svg') format('svg'),
+  asset-url('icomatic.eot?#iefix') format('embedded-opentype'),
+  asset-url('icomatic.woff') format('woff'),
+  asset-url('icomatic.ttf') format('truetype');
+
+}
+
+
+@font-face {
+  font-family: 'source_sans_proextralight';
+  src: asset-url('/assets/sourcesanspro-extralight-webfont.eot');
+  src: asset-url('/assets/sourcesanspro-extralight-webfont.eot?#iefix') format('embedded-opentype'),
+  asset-url('/assets/sourcesanspro-extralight-webfont.woff') format('woff'),
+  asset-url('/assets/sourcesanspro-extralight-webfont.ttf') format('truetype'),
+  asset-url('/assets/sourcesanspro-extralight-webfont.svg#source_sans_proextralight') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+@font-face {
+  font-family: 'source_sans_prolight';
+  src: asset-url('sourcesanspro-light-webfont.eot');
+  src: asset-url('sourcesanspro-light-webfont.eot?#iefix') format('embedded-opentype'),
+  asset-url('sourcesanspro-light-webfont.woff') format('woff'),
+  asset-url('sourcesanspro-light-webfont.ttf') format('truetype'),
+  asset-url('sourcesanspro-light-webfont.svg#source_sans_prolight') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'source_sans_proregular';
+  src: asset-url('sourcesanspro-regular-webfont.eot');
+  src: asset-url('sourcesanspro-regular-webfont.eot?#iefix') format('embedded-opentype'),
+  asset-url('sourcesanspro-regular-webfont.woff') format('woff'),
+  asset-url('sourcesanspro-regular-webfont.ttf') format('truetype'),
+  asset-url('sourcesanspro-regular-webfont.svg#source_sans_proregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 body{
   color:#c6c8c8;
+  font-weight: 200;
 }
 hr{
   margin-top: 20px;
@@ -10,14 +60,51 @@ hr{
   border: 0;
   border-top: 1px solid #5e6061;
 }
+.icomatic {
+  font-family: 'Icomatic','sans-serif';
+  line-height: 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-feature-settings: "liga", "dlig";
+  -ms-font-feature-settings: "liga", "dlig";
+  -moz-font-feature-settings: "liga", "dlig";
+  -o-font-feature-settings: "liga", "dlig";
+  font-feature-settings: "liga", "dlig";
+  -webkit-font-smoothing: antialiased;
+}
+.icomatic-alt {
+  margin: -1px;
+  border:0;
+  padding: 0;
+  width: 1px; height: 1px;
+  clip: rect(0 0 0 0);
+  position: absolute;
+  overflow: hidden;
+}
 .jumbotron{
   background-color: #424546;
   border:solid 1px #2f3233;
 }
 .jumbotron h1{
   color:#5a5d5e;
+  font-weight: 100;
 }
 .well{
   background-color: #4d5051;
-  border-color: #727373;
+  border-color: #2f3233;
+  font-family: 'source_sans_proextralight';
+  -moz-box-shadow:     inset 1px 4px 9px -6px #454545;
+  -webkit-box-shadow:  inset 1px 4px 9px -6px #454545;
+  box-shadow:          inset 1px 4px 9px -6px #454545;
+}
+p{
+  font-family: 'source_sans_proextralight';
+  font-weight: 100;
+  margin-bottom: 2px;
+}
+.name-lg{
+  font-size: 36px;
+  color:white;
+}
+.highlight{
+  color:#5dc1ff;
 }

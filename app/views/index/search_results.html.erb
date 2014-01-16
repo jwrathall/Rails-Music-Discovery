@@ -6,31 +6,26 @@
     </div>
   </div>
   <div class="row" ng-controller="resultsController">
-        doc results: <%=@doc%>
-    </div>
-  <div>
+    <div class="col-lg-12 col-xs-12">
     <% @output.each_with_index do |page, index| %>
         <div class='well well-lg'>
-          artist name: <%= page.name%>
-          </br>
-          artist id: <%= page.id%>
-          </br>
-          <%= page.country_id%>
-          </br>
-          country: <%= page.country_name%>
-          </br>
-          area: <%= page.area_name%>
-          </br>
-          inception: <%= page.start%>
-          </br>
-          end: <%= page.stop%>
-          </br>
-          genre: <%= page.genre%>
-
+          <%=page.relevance%>
+          <div class='icomatic' style="float:right;"><a href="#">plus</a></div>
+          <p class="name-lg"><%= page.name%></p>
+          <%unless page.area_name.empty? && page.country_name.empty?%>
+            <p class="highlight"><%= page.area_name%> <%= page.country_name%></p>
+          <%end%>
+          <%unless page.description.empty?%>
+            <p> <%= page.description%></p>
+          <%end%>
+          <%unless page.genre == '' %>
+              <%page.genre[0,5].each do |genre|%>
+                  <%=genre%>&nbsp;
+              <%end%>
+          <%end%>
         </div>
-
-        <hr/>
     <% end %>
-
+    </div>
   </div>
 </div>
+<!-- http://icomatic.github.io/sample-set/kit/icomatic.html -->
