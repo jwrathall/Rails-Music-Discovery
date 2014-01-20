@@ -29,7 +29,8 @@ class IndexController < ApplicationController
     artists = Array.new
     xml.xpath('//metadata//artist-list//artist').each do |artist|
       myartist = Artist.new()
-      myartist.relevance = artist.xpath('/@ext:score')
+      myartist.relevance = artist.attribute('score')
+      myartist.type = artist.attribute('type')
       myartist.name = artist.child().text()
       myartist.id = artist.attribute('id')
 

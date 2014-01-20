@@ -1,5 +1,5 @@
 class Artist
-  attr_accessor :relevance, :id, :name, :country_id, :country_id, :country_name, :area_id, :area_name, :start, :stop, :genre, :description
+  attr_accessor :relevance, :id, :type ,:name, :country_id, :country_id, :country_name, :area_id, :area_name, :start, :stop, :members, :genre, :description
   def relevance=(relevance)
     @relevance = relevance
   end
@@ -8,6 +8,9 @@ class Artist
   end
   def name=(name)
     @name = name
+  end
+  def type=(type)
+    @type = type
   end
   def country_id=(id)
     @country_id=id
@@ -27,10 +30,14 @@ class Artist
   def stop=(stop)
     @stop = stop
   end
+  def members=(members)
+    @members = members
+  end
   def genre=(genre)
     #needs to be an array to hold the tag types
     @genre = genre
   end
+
   def description=(description)
     @description = description
   end

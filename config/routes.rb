@@ -1,11 +1,12 @@
 DevMusicCom::Application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
+ # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'index#index'
-  #post '/' => 'index#search'
   post '/', :to => 'index#get'
+  #get '/albums', :to => 'albums#index'
+  get '/albums/:id', :to => 'albums#index', as: :albums
 
   resources :index, defaults: {format: :json}, only: [:index]  do
 

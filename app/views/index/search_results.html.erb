@@ -9,9 +9,27 @@
     <div class="col-lg-12 col-xs-12">
     <% @output.each_with_index do |page, index| %>
         <div class='well well-lg'>
-          <%=page.relevance%>
-          <div class='icomatic' style="float:right;"><a href="#">plus</a></div>
-          <p class="name-lg"><%= page.name%></p>
+
+          <!--<div class='icomatic' style="float:right;"><a href="#">plus</a></div>-->
+          <p class="highlight"><%= page.type%></p>
+          <div class="row">
+            <div class="col-md-10 col-xs-10">
+
+              <%= link_to albums_path(page.id) do%>
+              <div style="width:auto; float:left;">
+                <p class="name-lg"><%= page.name%></p>
+              </div>
+              <div class='icomatic' style="float:left; display:inline;font-size:20px; margin:10px 0 0 10px;"><span>search</span></div>
+              <%end%>
+            </div>
+            <div class="col-md-2 col-xs-2">
+              <div style="float:right;">
+                <div>score</div>
+                <span class="topcoat-notification"><%=page.relevance%></span>
+              </div>
+            </div>
+          </div>
+
           <%unless page.area_name.empty? && page.country_name.empty?%>
             <p class="highlight"><%= page.area_name%> <%= page.country_name%></p>
           <%end%>
@@ -19,9 +37,11 @@
             <p> <%= page.description%></p>
           <%end%>
           <%unless page.genre == '' %>
-              <%page.genre[0,5].each do |genre|%>
-                  <%=genre%>&nbsp;
+              <%@genres = page.genre[0,5]%>
+              <%@genres.each_with_index do |genre, i|%>
+                  <%=genre%> <%=', ' unless i == @genres.length-1%>
               <%end%>
+
           <%end%>
         </div>
     <% end %>

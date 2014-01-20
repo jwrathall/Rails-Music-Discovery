@@ -2,7 +2,11 @@
   <%= render 'layouts/jumbotron' %>
   <div class="row">
     <div class="col-xs-12 col-md-8">
-<%=@bandid%>
+      <% @bandid.each_with_index do |page, index| %>
+              <%=page[:title]%>: <%=page[:release_date]%>
+          <br/>
+
+      <%end%>
     </div>
   </div>
 </div>

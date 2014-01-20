@@ -9,6 +9,9 @@ class Settings
     get_string_setting('musicbrainz_artist_query')
   end
 
+  def Settings.musicbrainz_release_query
+    get_string_setting('musicbrainz_release_query')
+  end
   def self.get_string_setting(value)
     APP_CONFIG[value].to_s
   end
