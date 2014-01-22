@@ -1,20 +1,36 @@
 <div class="container">
-  <%= render 'layouts/jumbotron' %>
-
+  <div class="jumbotron jumbotron-releases">
+    <h1><%=@band_name%></h1>
+    <p>release area here.</p>
+    <p>release summary</p>
+    <p>release inception here</p>
+    <p>links to similar artists here && links to events if any</p>
+  </div>
   <div class="row">
     <div class="col-xs-12 col-md-12">
       <div class="row">
-        <% @bandid.each_with_index do |page, index| %>
-            <% if index % 3 == 0 && index != 0%>
+        <% @releases.each_with_index do |release, index| %>
+            <% if index % 2 == 0 && index != 0%>
                 </div>
                 <div class="row">
             <%end%>
-          <div class="col-md-4">
-            <div class="well-sm well-release">
-              <%=page[:title]%>: <%=page[:release_date]%>
+            <div class="col-md-6">
+              <div class="well well-sm well-release">
+                <p class="highlight"><%=release[:type]%></p>
+                <div class="row" style="margin-bottom: 2px;">
+                  <div class="col-md-10">
+                    <p class="name-md"><%=release[:title]%></p>
+                  </div>
+                  <div class="col-md-2">
+                    <%if release[:release_year] == @year && release[:release_month] == @month %>
+                        <span class="topcoat-notification">new</span>
+                    <%end%>
+                  </div>
+                </div>
+                <p class="highlight"><%=release[:release_year]%></p>
+              </div>
             </div>
-          </div>
-      <%end%>
+        <%end%>
     </div>
   </div>
 </div>

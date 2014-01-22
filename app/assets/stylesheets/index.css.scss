@@ -88,6 +88,12 @@ hr{
   color:#5a5d5e;
   font-weight: 100;
 }
+.jumbotron-releases h1{
+  color:white;
+  font-family: 'source_sans_proextralight';
+  font-weight: 100;
+  margin-bottom: 2px;
+}
 .well, .well-release{
   background-color: #4d5051;
   border-color: #2f3233;
@@ -103,6 +109,10 @@ p{
 }
 .name-lg{
   font-size: 36px;
+  color:white;
+}
+.name-md{
+  font-size:26px;
   color:white;
 }
 .highlight{

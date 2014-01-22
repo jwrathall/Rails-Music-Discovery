@@ -2,6 +2,8 @@ musicbrainz_url: 'http://musicbrainz.org'
 musicbrainz_artist_query: '/ws/2/artist/?query=artist:'
 musicbrainz_release_query: '/ws/2/release-group?artist='
 last_fm_api_key: 'c49fe5da5c5a3f102f1ac7590b8e31ed'
+last_fm_url: 'http://ws.audioscrobbler.com/2.0/'
+last_fm_buy_links: ''
 
 
 
