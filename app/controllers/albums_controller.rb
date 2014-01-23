@@ -23,6 +23,7 @@ class AlbumsController < ApplicationController
     myvar = ActiveSupport::JSON.decode(lf.body)
     @band_name =  myvar['artist']['name']
     on_tour  = myvar['artist']['ontour']
+    #TODO code for any of these missing
     @placeformed = myvar['artist']['bio']['placeformed'].html_safe
     @yearformed = myvar['artist']['bio']['yearformed'].html_safe
     @summary =  myvar['artist']['bio']['summary'].html_safe
@@ -85,30 +86,7 @@ class AlbumsController < ApplicationController
     end
 
     @releases = releases.sort_by { |hsh| hsh[:release_year] || '0'}.reverse
-
-
-#    conn_lf = Faraday.new(:url => Settings.last_fm_url) do |faraday|
-#      faraday.request  :url_encoded             # form-encode POST params
-#      faraday.response :logger                  # log requests to STDOUT
-#      faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
-#    end
-#
-#    releases.each do |release|
-#=begin
-#      conn_lf.get do |rel|                           # GET http://sushi.com/search?page=2&limit=100
-#        rel.url '?method=album.getbuylinks&artist=', :page => band_name
-#        rel.params['album'] = release['name'],
-#        rel.params['country'] = 'us',
-#        rel.params['api_key'] = Settings.last_fm_api.to_s,
-#        rel.params['format'] = 'json'
-#      end
-#=end
-#
-#      last_fm_album = conn_lf.get '?method=album.getbuylinks&artist=' + band_name + '&album=' + release[:title].to_s + '&country=us&api_key=' + Settings.last_fm_api.to_s + '&format=json'
-#
-#    end
-#    @somevar = var
-    #event_data["data"]["object"]["id"]
+ #event_data["data"]["object"]["id"]
 
 
   end
