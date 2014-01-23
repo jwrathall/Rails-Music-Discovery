@@ -6,10 +6,34 @@ class AlbumsController < ApplicationController
 
   def index
 
-    #TODO: get band info from last.fm, need api key, pass in band id
+
     @month = Time.now.strftime('%m')
     @year =  Time.now.strftime('%Y')
-    @band_name = params['name']
+
+
+    conn_lf = Faraday.new(:url => Settings.last_fm_url) do |faraday|
+      faraday.request  :url_encoded             # form-encode POST params
+      faraday.response :logger                  # log requests to STDOUT
+      faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
+    end
+
+    lf = conn_lf.get ''+ '?method=artist.getinfo&mbid=' + params['id'] + '&api_key=' + Settings.last_fm_api + '&format=json'
+
+
+    myvar = ActiveSupport::JSON.decode(lf.body)
+    @band_name =  myvar['artist']['name']
+    on_tour  = myvar['artist']['ontour']
+    @placeformed = myvar['artist']['bio']['placeformed'].html_safe
+    @yearformed = myvar['artist']['bio']['yearformed'].html_safe
+    @summary =  myvar['artist']['bio']['summary'].html_safe
+    if myvar['artist']['bandmembers'] != nil
+      @members = myvar['artist']['bandmembers']['member']
+    else
+      @members = ''
+    end
+
+
+
     conn = Faraday.new(:url => Settings.musicbrainz_url) do |faraday|
       faraday.request  :url_encoded             # form-encode POST params
       faraday.response :logger                  # log requests to STDOUT
