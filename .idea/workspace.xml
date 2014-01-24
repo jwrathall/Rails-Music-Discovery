@@ -2,19 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="542965ff-2b54-4e89-b4c9-2b87acf8ec47" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/albums_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/albums_controller.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/javascripts/albums.js.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/releases.js.coffee" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/albums.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/releases.css.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/controllers/albums_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/releases_controller.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/albums/index.html.erb" afterPath="$PROJECT_DIR$/app/views/releases/index.html.erb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/albums/show.html.erb" afterPath="$PROJECT_DIR$/app/views/releases/show.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/index/search_results.html.erb" afterPath="$PROJECT_DIR$/app/views/index/search_results.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dev.music.com.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/routes.rb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1389968953800" ignored="false" />
-    <file path="/index.html.erb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1390512549863" ignored="false" />
+    <file path="/routes.rb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1390570148803" ignored="false" />
+    <file path="/index.html.erb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1390570041719" ignored="false" />
     <file path="/Gemfile" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1389645566974" ignored="false" />
     <file path="/application.js" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1389021458271" ignored="false" />
     <file path="/application.css" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1389871766892" ignored="false" />
-    <file path="/Dummy.txt" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1390513064276" ignored="false" />
+    <file path="/Dummy.txt" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1390567060489" ignored="false" />
     <file path="/index_controller.rb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1389952927656" ignored="false" />
-    <file path="/search_results.html.erb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1390512499067" ignored="false" />
+    <file path="/search_results.html.erb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1390569713299" ignored="false" />
     <file path="/settings.rb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1390399206290" ignored="false" />
     <file path="$PROJECT_DIR$/../dev.scheduler.com/lib/settings.rb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1389457779085" ignored="false" />
     <file path="$PROJECT_DIR$/../dev.scheduler.com/config/environments/development.rb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1389386086674" ignored="false" />
@@ -31,10 +37,12 @@
     <file path="/index.css.scss" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1390342781684" ignored="false" />
     <file path="/_form.html.erb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1389822423513" ignored="false" />
     <file path="/_jumbotron.html.erb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1389967829776" ignored="false" />
-    <file path="/albums_controller.rb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1390513094074" ignored="false" />
+    <file path="/albums_controller.rb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1390569592293" ignored="false" />
     <file path="/album.rb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1390257017505" ignored="false" />
     <file path="/albums.css.scss" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1390511949489" ignored="false" />
     <file path="/last_fm.rb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1390425861505" ignored="false" />
+    <file path="/temp.rb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1390569627454" ignored="false" />
+    <file path="/release_controller.rb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1390569935144" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +65,7 @@
       <file leaf-file-name="index_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/index_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="107" selection-start="605" selection-end="669" vertical-scroll-proportion="0.0">
+            <state line="20" column="88" selection-start="605" selection-end="669" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -66,41 +74,52 @@
       <file leaf-file-name="search_results.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/index/search_results.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="53" selection-start="609" selection-end="609" vertical-scroll-proportion="-10.625">
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/albums/index.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="68" selection-start="1827" selection-end="1827" vertical-scroll-proportion="-29.375">
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/settings.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="48" selection-start="514" selection-end="514" vertical-scroll-proportion="0.0">
+            <state line="22" column="70" selection-start="903" selection-end="903" vertical-scroll-proportion="-13.75">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="albums_controller.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/albums_controller.rb">
+      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/releases/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="0" selection-start="3083" selection-end="3083" vertical-scroll-proportion="1.2547529">
+            <state line="32" column="73" selection-start="1169" selection-end="1169" vertical-scroll-proportion="0.4440333">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="release_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/release_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="29" selection-start="127" selection-end="127" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/release/index.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="6" selection-start="224" selection-end="224" vertical-scroll-proportion="-6.25">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/routes.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="0" selection-start="40" selection-end="40" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="releases_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/releases_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="8" selection-start="8" selection-end="8" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -115,37 +134,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="music_brainz.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/music_brainz.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="161" selection-start="245" selection-end="245" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="last_fm.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/last_fm.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="7" selection-start="57" selection-end="57" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/config.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="211" selection-start="333" selection-end="333" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="albums.css.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/albums.css.scss">
+      <file leaf-file-name="releases.css.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/releases.css.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state line="19" column="19" selection-start="398" selection-end="398" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.css.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/index.css.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="95" column="1" selection-start="2836" selection-end="2836" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -169,11 +170,7 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/config/environments/development.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/index_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/_jumbotron.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/lib/artist.rb" />
         <option value="$PROJECT_DIR$/lib/album.rb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/index.css.scss" />
@@ -182,9 +179,13 @@
         <option value="$PROJECT_DIR$/lib/music_brainz.rb" />
         <option value="$PROJECT_DIR$/config/config.yml" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/albums.css.scss" />
-        <option value="$PROJECT_DIR$/app/views/index/search_results.html.erb" />
         <option value="$PROJECT_DIR$/app/views/albums/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/albums_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/index/search_results.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/release_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/release/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/releases/index.html.erb" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
       </list>
     </option>
   </component>
@@ -337,6 +338,50 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="releases" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dev.music.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dev.music.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="release" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dev.music.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dev.music.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="layouts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -360,28 +405,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="index" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dev.music.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dev.music.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="albums" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -503,28 +526,28 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="RailsProjectView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../dev.scheduler.com" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/lib" />
     </key>
   </component>
-  <component name="RunManager" selected="Ruby.albums_controller">
-    <configuration default="false" name="albums_controller" type="RubyRunConfigurationType" factoryName="Ruby" temporary="true">
+  <component name="RunManager" selected="Ruby.releases_controller">
+    <configuration default="false" name="releases_controller" type="RubyRunConfigurationType" factoryName="Ruby" temporary="true">
       <module name="dev.music.com" />
       <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
       <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="$PROJECT_DIR$/app/controllers" />
@@ -540,7 +563,7 @@
         </COVERAGE_PATTERN>
       </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
-      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$PROJECT_DIR$/app/controllers/albums_controller.rb" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$PROJECT_DIR$/app/controllers/releases_controller.rb" />
       <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
       <RunnerSettings RunnerId="RubyDebugRunner" />
       <ConfigurationWrapper RunnerId="RubyDebugRunner" />
@@ -796,11 +819,11 @@
       <item index="1" class="java.lang.String" itemvalue="Rake.spec" />
       <item index="2" class="java.lang.String" itemvalue="Rails.Production: dev.music.com" />
       <item index="3" class="java.lang.String" itemvalue="Rails.Development: dev.music.com" />
-      <item index="4" class="java.lang.String" itemvalue="Ruby.albums_controller" />
+      <item index="4" class="java.lang.String" itemvalue="Ruby.releases_controller" />
     </list>
     <recent_temporary>
       <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Ruby.albums_controller" />
+        <item index="0" class="java.lang.String" itemvalue="Ruby.releases_controller" />
       </list>
     </recent_temporary>
   </component>
@@ -904,12 +927,12 @@
     <frame x="47" y="51" width="2431" height="1228" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32979664" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32979664" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921448" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921448" sideWeight="0.49979037" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30020964" sideWeight="0.67078555" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30272537" sideWeight="0.67078555" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3998235" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32979664" sideWeight="0.5002096" order="7" side_tool="true" content_ui="tabs" />
@@ -918,7 +941,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32979664" sideWeight="0.49979037" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32979664" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -999,23 +1022,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="601" selection-end="601" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="3" selection-start="294" selection-end="294" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/album.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="55" selection-start="199" selection-end="199" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -1024,13 +1030,6 @@
     <entry file="file://$PROJECT_DIR$/app/views/layouts/_jumbotron.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="143" vertical-scroll-proportion="-0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/index.css.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="1" selection-start="2836" selection-end="2836" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/last_fm.rb">
@@ -1049,14 +1048,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/settings.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="48" selection-start="514" selection-end="514" vertical-scroll-proportion="0.0">
+        <state line="23" column="36" selection-start="514" selection-end="514" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="211" selection-start="333" selection-end="333" vertical-scroll-proportion="0.0">
+        <state line="10" column="0" selection-start="333" selection-end="333" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1068,44 +1067,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/albums.css.scss">
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/releases.css.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="19" selection-start="398" selection-end="398" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/index.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="95" column="1" selection-start="2836" selection-end="2836" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/releases_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="8" selection-start="8" selection-end="8" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/index_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="107" selection-start="605" selection-end="669" vertical-scroll-proportion="0.0">
+        <state line="20" column="88" selection-start="605" selection-end="669" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/release_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="29" selection-start="127" selection-end="127" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/release/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="6" selection-start="224" selection-end="224" vertical-scroll-proportion="-6.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="40" selection-end="40" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/index/search_results.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="53" selection-start="609" selection-end="609" vertical-scroll-proportion="-10.625">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="22" column="70" selection-start="903" selection-end="903" vertical-scroll-proportion="-13.75">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/albums/index.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/releases/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="68" selection-start="1827" selection-end="1827" vertical-scroll-proportion="-29.375">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/albums_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="0" selection-start="3083" selection-end="3083" vertical-scroll-proportion="1.2547529">
+        <state line="32" column="73" selection-start="1169" selection-end="1169" vertical-scroll-proportion="0.4440333">
           <folding />
         </state>
       </provider>

@@ -1,4 +1,4 @@
-class AlbumsController < ApplicationController
+class ReleasesController < ApplicationController
   require 'settings'
   require 'faraday'
   require 'nokogiri'
@@ -23,9 +23,18 @@ class AlbumsController < ApplicationController
     myvar = ActiveSupport::JSON.decode(lf.body)
     @band_name =  myvar['artist']['name']
     on_tour  = myvar['artist']['ontour']
-    #TODO code for any of these missing
-    @placeformed = myvar['artist']['bio']['placeformed'].html_safe
-    @yearformed = myvar['artist']['bio']['yearformed'].html_safe
+
+    if myvar['artist']['bio']['placeformed'] != nil?
+      @placeformed = myvar['artist']['bio']['placeformed']
+    else
+      @placeformed = ''
+    end
+
+
+    if @placeformed == nil?
+      @placeformed = ''
+    end
+
     @summary =  myvar['artist']['bio']['summary'].html_safe
     if myvar['artist']['bandmembers'] != nil
       @members = myvar['artist']['bandmembers']['member']

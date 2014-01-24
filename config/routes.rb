@@ -1,4 +1,5 @@
 DevMusicCom::Application.routes.draw do
+
  # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -6,7 +7,8 @@ DevMusicCom::Application.routes.draw do
   root 'index#index'
   post '/', :to => 'index#get'
   #get '/albums', :to => 'albums#index'
-  get '/albums/:id', :to => 'albums#index', as: :albums
+  get '/releases/:id', :to => 'releases#index', as: :releases
+  get '/release/', :to => 'release#index', as: :release
 
   resources :index, defaults: {format: :json}, only: [:index]  do
 

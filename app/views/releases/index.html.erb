@@ -1,14 +1,13 @@
 <div class="container">
   <div class="jumbotron jumbotron-releases">
     <h1><%=@band_name%></h1>
-    <p><%=@yearformed%></p>
-    <p><%=@placeformed%></p>
+    <p class="highlight"><%=@placeformed%></p>
        <%unless @members.empty?%>
         <div class="row">
           <div class="col-md-12">
             <ul class="members">
               <%@members.each_with_index do |member, i|%>
-                  <li><%=member['name']%><%=', ' unless i == @members.length-1%></li>
+                  <li><%=member['name'].to_s%><%=', ' unless i == @members.length-1%></li>
               <%end%>
             </ul>
           </div>
@@ -27,13 +26,16 @@
             <%end%>
             <div class="col-md-6">
               <div class="well well-sm well-release">
-                <p class="highlight"><%=release[:type]%></p>
+                <p class="highlight"><%=release[:release_year]%></p>
+
                 <div class="row" style="margin-bottom: 2px;">
                   <div class="col-md-10">
+                    <%= link_to release_path({:release => release[:title], :band => @band_name}) do%>
                     <div style="width:auto; float:left;">
                         <p class="name-md"><%=release[:title]%></p>
                     </div>
                     <div class='icomatic' style="float:left; display:inline;font-size:20px; margin:5px 0 0 10px;"><span>next</span></div>
+                    <%end%>
                   </div>
                   <div class="col-md-2">
                     <%if release[:release_year] == @year && release[:release_month] == @month %>
@@ -41,10 +43,11 @@
                     <%end%>
                   </div>
                 </div>
-                <p class="highlight"><%=release[:release_year]%></p>
+                <p class="highlight"><%=release[:type]%></p>
               </div>
             </div>
         <%end%>
     </div>
   </div>
 </div>
+      </div>
