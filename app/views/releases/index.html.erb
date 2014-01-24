@@ -1,8 +1,20 @@
 <div class="container">
   <div class="jumbotron jumbotron-releases">
-    <h1><%=@band_name%></h1>
+    <div class="row">
+        <div class="col-md-12">
+          <div style="float:left;">
+            <h1><%=@band_name%></h1>
+          </div>
+          <div style="float:left;">
+            <%if @on_tour == '1'%>
+                tour dates
+            <%end%>
+          </div>
+        </div>
+    </div>
+
     <p class="highlight"><%=@placeformed%></p>
-       <%unless @members.empty?%>
+    <%unless @members.empty?%>
         <div class="row">
           <div class="col-md-12">
             <ul class="members">
@@ -12,8 +24,29 @@
             </ul>
           </div>
         </div>
-       <%end%>
+    <%end%>
+    <p class="detail-sm">
+    <%@formation.each_with_index do |date, i| %>
+        <%if @is_array%>
+            <%if date['yearto'] == ''%>
+                <%yearto = 'present'%>
+            <%else%>
+                <%yearto = date['yearto']%>
+            <%end%>
+            <%=date['yearfrom']%> - <%=yearto%> <%=', ' unless i == @formation.length-1%>
+        <%else%>
+            <%if date[1]['yearto'] == ''%>
+                <%yearto = 'present'%>
+            <%else%>
+                <%yearto = date[1]['yearto']%>
+            <%end%>
+           <%=date[1]['yearfrom']%> - <%=yearto%>
+        <%end%>
+    <%end%>
+    </p>
+
     <p class="summary-small"><%=@summary%></p>
+
   </div>
 
   <div class="row">
@@ -50,4 +83,4 @@
     </div>
   </div>
 </div>
-      </div>
+</div>

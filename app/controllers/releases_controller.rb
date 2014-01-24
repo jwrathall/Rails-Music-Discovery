@@ -22,7 +22,7 @@ class ReleasesController < ApplicationController
 
     myvar = ActiveSupport::JSON.decode(lf.body)
     @band_name =  myvar['artist']['name']
-    on_tour  = myvar['artist']['ontour']
+    @on_tour  = myvar['artist']['ontour']
 
     if myvar['artist']['bio']['placeformed'] != nil?
       @placeformed = myvar['artist']['bio']['placeformed']
@@ -30,10 +30,19 @@ class ReleasesController < ApplicationController
       @placeformed = ''
     end
 
+   if myvar['artist']['bio']['formationlist'] != nil?
+     if myvar['artist']['bio']['formationlist']['formation'].is_a? Array
+       @is_array = true
+       date_formed= myvar['artist']['bio']['formationlist']['formation']
+     else
+       @is_array = false
+       date_formed= myvar['artist']['bio']['formationlist']
+     end
+   else
+     date_formed = ''
+   end
+   @formation = date_formed
 
-    if @placeformed == nil?
-      @placeformed = ''
-    end
 
     @summary =  myvar['artist']['bio']['summary'].html_safe
     if myvar['artist']['bandmembers'] != nil
