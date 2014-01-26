@@ -38,7 +38,9 @@
         <%=link_to 'similar', similar_path(:id => @arid)%>
       </div>
       <div class="col-md-4">
-        <%= link_to_if(@on_tour == '1', 'tour dates', tour_path(:id => @arid)) %>
+        <%if @on_tour == '1'%>
+         <%= link_to 'tour dates', tour_path(:id => @arid) %>
+        <%end%>
       </div>
       <div class="col-md-4">
 

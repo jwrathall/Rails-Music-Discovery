@@ -1,2 +1,6 @@
-<h1>Similar#index</h1>
-<p>Find me in app/views/similar_artist/index.html.erb</p>
+
+<%@artists.each_with_index do |artist, i|%>
+    <%= link_to artist['name'],releases_path({:id => artist['mbid']})%>
+    <br/>
+
+<%end%>
