@@ -1,18 +1,6 @@
 <div class="container">
   <div class="jumbotron jumbotron-releases">
-    <div class="row">
-        <div class="col-md-12">
-          <div style="float:left;">
-            <h1><%=@band_name%></h1>
-          </div>
-          <div style="float:left;">
-            <%if @on_tour == '1'%>
-                tour dates
-            <%end%>
-          </div>
-        </div>
-    </div>
-
+    <h1><%=@band_name%></h1>
     <p class="highlight"><%=@placeformed%></p>
     <%unless @members.empty?%>
         <div class="row">
@@ -44,9 +32,18 @@
         <%end%>
     <%end%>
     </p>
-
     <p class="summary-small"><%=@summary%></p>
+    <div class="row">
+      <div class="col-md-4">
+        <%=link_to 'similar', similar_path(:id => @arid)%>
+      </div>
+      <div class="col-md-4">
+        <%= link_to_if(@on_tour == '1', 'tour dates', tour_path(:id => @arid)) %>
+      </div>
+      <div class="col-md-4">
 
+      </div>
+    </div>
   </div>
 
   <div class="row">

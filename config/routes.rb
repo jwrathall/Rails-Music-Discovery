@@ -5,13 +5,18 @@ DevMusicCom::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'index#index'
-  post '/', :to => 'index#get'
-  #get '/albums', :to => 'albums#index'
-  get '/releases/:id', :to => 'releases#index', as: :releases
-  get '/release/', :to => 'release#index', as: :release
+  post 'artist/', :to => 'index#get'
+  get 'artist/releases/:id', :to => 'releases#index', as: :releases
+  get 'artist/release', :to => 'release#index', as: :release
+  get 'artist/similar/:id', :to => 'similar#index', as: :similar
+  get 'artist/tours/:id', :to => 'tours#index', as: :tour
 
   resources :index, defaults: {format: :json}, only: [:index]  do
 
+
+    #namespace :artist do
+    #  resources :releases, :release, :tours, :similar_artist
+    #end
   end
 
 

@@ -9,7 +9,7 @@ class ReleasesController < ApplicationController
 
     @month = Time.now.strftime('%m')
     @year =  Time.now.strftime('%Y')
-
+    @arid = params['id']
 
     conn_lf = Faraday.new(:url => Settings.last_fm_url) do |faraday|
       faraday.request  :url_encoded             # form-encode POST params
