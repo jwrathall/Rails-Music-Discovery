@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="542965ff-2b54-4e89-b4c9-2b87acf8ec47" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/test/controllers/albums_controller_test.rb" afterPath="$PROJECT_DIR$/test/controllers/releases_controller_test.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/test/helpers/albums_helper_test.rb" afterPath="$PROJECT_DIR$/test/helpers/releases_helper_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/index/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/index/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/releases/index.html.erb" afterPath="$PROJECT_DIR$/app/views/releases/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/releases_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/releases_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dev.music.com.iws" />
@@ -17,7 +11,7 @@
     <file path="/Gemfile" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1389645566974" ignored="false" />
     <file path="/application.js" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1389021458271" ignored="false" />
     <file path="/application.css" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1389871766892" ignored="false" />
-    <file path="/Dummy.txt" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1390755309462" ignored="false" />
+    <file path="/Dummy.txt" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1390755581450" ignored="false" />
     <file path="/index_controller.rb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1389952927656" ignored="false" />
     <file path="/search_results.html.erb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1390569713299" ignored="false" />
     <file path="/settings.rb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1390399206290" ignored="false" />
@@ -75,7 +69,7 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/releases/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="74" selection-start="1755" selection-end="1755" vertical-scroll-proportion="0.7631822">
+            <state line="55" column="74" selection-start="1755" selection-end="1755" vertical-scroll-proportion="0.7645968">
               <folding />
             </state>
           </provider>
@@ -670,11 +664,11 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Ruby.releases_controller" />
-      <item index="1" class="java.lang.String" itemvalue="Rake.test" />
-      <item index="2" class="java.lang.String" itemvalue="Rake.spec" />
-      <item index="3" class="java.lang.String" itemvalue="Rails.Production: dev.music.com" />
-      <item index="4" class="java.lang.String" itemvalue="Rails.Development: dev.music.com" />
+      <item index="0" class="java.lang.String" itemvalue="Rake.test" />
+      <item index="1" class="java.lang.String" itemvalue="Rake.spec" />
+      <item index="2" class="java.lang.String" itemvalue="Rails.Production: dev.music.com" />
+      <item index="3" class="java.lang.String" itemvalue="Rails.Development: dev.music.com" />
+      <item index="4" class="java.lang.String" itemvalue="Ruby.releases_controller" />
     </list>
     <recent_temporary>
       <list size="1">
@@ -763,7 +757,11 @@
       <created>1390604499389</created>
       <updated>1390604499389</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="added: tour and similar artist page.&#10;updated: change routing to add illusion of nested url 'artist/thing'">
+      <created>1390755585499</created>
+      <updated>1390755585499</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -790,6 +788,7 @@
     <frame x="47" y="51" width="2431" height="1228" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32979664" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32979664" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921448" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -804,7 +803,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921448" sideWeight="0.49979037" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32979664" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -852,7 +850,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="finalize band details on releases page, include activity dates for the band. Begin adding tour dates functionality to the releases page" />
+    <option name="LAST_COMMIT_MESSAGE" value="added: tour and similar artist page.&#10;updated: change routing to add illusion of nested url 'artist/thing'" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -880,6 +878,7 @@
     <MESSAGE value="update album release page, band info, still need some tweaks for the bio section" />
     <MESSAGE value="rename albums to releases, create new release page" />
     <MESSAGE value="finalize band details on releases page, include activity dates for the band. Begin adding tour dates functionality to the releases page" />
+    <MESSAGE value="added: tour and similar artist page.&#10;updated: change routing to add illusion of nested url 'artist/thing'" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -970,7 +969,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/releases/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="74" selection-start="1755" selection-end="1755" vertical-scroll-proportion="0.7631822">
+        <state line="55" column="74" selection-start="1755" selection-end="1755" vertical-scroll-proportion="0.7645968">
           <folding />
         </state>
       </provider>
