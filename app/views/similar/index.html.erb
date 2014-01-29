@@ -1,6 +1,39 @@
+<div class="container">
+    <div class="jumbotron jumbotron-releases">
+      <h1><%=@band_name%></h1>
+      <p class="highlight"><span class="thin-title">Similar</span> Artists</p>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <div class="row">
+              <% @artists.each_with_index do |artist, index| %>
+                  <% if index % 2 == 0 && index != 0%>
+                      </div>
+                      <div class="row">
+                  <%end%>
+                  <div class="col-md-6">
+                    <div class="well well-sm well-release">
+                      <div class="row" style="margin-bottom: 2px;">
+                        <div class="col-md-10">
+                          <%= link_to releases_path(:id => artist.mbid) do%>
+                              <div style="width:auto; float:left;">
+                                <p class="name-md"><%=artist.name%></p>
+                              </div>
+                              <div class='icomatic' style="float:left; display:inline;font-size:20px; margin:5px 0 0 10px;"><span>next</span></div>
+                          <%end%>
+                        </div>
+                        <div class="col-md-2">
+                          <div style="float:right;">
+                            <div>likeness</div>
+                            <span class="topcoat-notification"><%=artist.match%></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+               <%end%>
+            </div>
+        </div>
+    </div>
+</div>
 
-<%@artists.each_with_index do |artist, i|%>
-    <%= link_to artist['name'],releases_path({:id => artist['mbid']})%>
-    <br/>
-
-<%end%>
