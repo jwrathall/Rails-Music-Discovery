@@ -30,7 +30,7 @@ class SimilarController < ApplicationController
                     )
 
       all_artist.push(art)
-     end
+    end
     @artists = all_artist
   end
 end

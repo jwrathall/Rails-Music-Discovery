@@ -1,6 +1,8 @@
 <div class="container">
   <div class="jumbotron jumbotron-releases">
+
     <h1><%=@band_name%></h1>
+
     <p class="highlight"><%=@placeformed%></p>
     <%unless @members.empty?%>
         <div class="row">
@@ -32,12 +34,20 @@
         <%end%>
     <%end%>
     </p>
-    <p class="summary-small"><%=@summary%></p>
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-6 tags highlight">
+        <%@json_tags.each_with_index do |tag, i|%>
+            <%=tag['name']%><%=',  ' unless i == @json_tags.length-1%>
+        <%end%>
+      </div>
+    </div>
+    <p class="summary-small"><%=@summary%></p>
+
+    <div class="row">
+      <div class="col-md-2">
         <%=link_to 'similar', similar_path(:id => @arid)%>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-2">
         <%if @on_tour == '1'%>
          <%= link_to 'tour dates', tour_path(:id => @arid) %>
         <%end%>

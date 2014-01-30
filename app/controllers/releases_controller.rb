@@ -43,6 +43,10 @@ class ReleasesController < ApplicationController
    end
    @formation = date_formed
 
+    @json_tags = myvar['artist']['tags']['tag']
+
+
+
 
     @summary =  myvar['artist']['bio']['summary'].html_safe
     if myvar['artist']['bandmembers'] != nil
