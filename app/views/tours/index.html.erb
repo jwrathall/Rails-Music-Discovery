@@ -2,22 +2,48 @@
   <div class="jumbotron jumbotron-releases">
 
     <h1><%=@band_name%></h1>
-
-
     </div>
       <div class="row">
         <div class="col-xs-12 col-md-12">
-          <%@json.each do |event|%>
+          <%@events.each do |event|%>
               <div class='well well-lg'>
                 <div class="row">
                   <div class="col-md-4 col-lg-4 col-xs-4">
-                    <span class="highlight"><%=event['startDate']%></span>
-                        <%=@events%>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <span class="highlight"><%=event.date%></span>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <%event.artists.each_with_index do |artist,index|%>
+                          <% if index % 2 == 0 && index != 0%>
+                              </div>
+                              <div class="row">
+                          <%end%>
+                          <div class="col-md-6" >
+                            <%=artist%><BR/>
+                          </div>
+                      <%end%>
+                    </div>
                    </div>
-                  <div class="col-md-4 col-lg-4 col-xs-4"></div>
-                  <div class="col-md-4 col-lg-4 col-xs-4"></div>
+                  <div class="col-md-4 col-lg-4 col-xs-4">
+                    <p><%=event.venue.name%></p>
+                    <p><%=event.venue.city%>, <%=event.venue.country%></p>
+                    <p><%=event.venue.street%></p>
+                    <p><%=event.venue.postal_code%></p>
+                    <p><%=event.venue.geo_location[:lat]%></p>
+                    <p><%=event.venue.geo_location[:long]%></p>
+                  </div>
+                  <div class="col-md-4 col-lg-4 col-xs-4">
+                    <%if event.venue.geo_location.empty?%>
+                    <p>x</p>
+                     <%else%>
+                    <p>show</p>
+                    <%end%>
+
+                  </div>
                 </div>
-                <%=event%>
               </div>
           <%end%>
         </div>
