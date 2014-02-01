@@ -2,6 +2,7 @@
   <div class="jumbotron jumbotron-releases">
 
     <h1><%=@band_name%></h1>
+        <%=@json%>
     </div>
       <div class="row">
         <div class="col-xs-12 col-md-12">
@@ -11,7 +12,14 @@
                   <div class="col-md-4 col-lg-4 col-xs-4">
                     <div class="row">
                       <div class="col-md-12">
-                        <span class="highlight"><%=event.date%></span>
+                        <%if event.is_today%>
+                            <div style="margin:0 0 5px 0;">
+                                <span class="topcoat-notification">Today</span>
+                            </div>
+                        <%end%>
+                        <div>
+                         <span class="highlight"><%=event.date.strftime('%A, %B %d')%></span>
+                        </div>
                       </div>
                     </div>
 
@@ -28,19 +36,21 @@
                     </div>
                    </div>
                   <div class="col-md-4 col-lg-4 col-xs-4">
+                    <div>
+                      <span class="highlight">Venue</span>
+                    </div>
                     <p><%=event.venue.name%></p>
                     <p><%=event.venue.city%>, <%=event.venue.country%></p>
                     <p><%=event.venue.street%></p>
                     <p><%=event.venue.postal_code%></p>
-                    <p><%=event.venue.geo_location[:lat]%></p>
-                    <p><%=event.venue.geo_location[:long]%></p>
+                    <p><%=event.phone%></p>
+                    <p><%=link_to event.website,event.website, :target => '_blank'%></p>
                   </div>
                   <div class="col-md-4 col-lg-4 col-xs-4">
-                    <%if event.venue.geo_location.empty?%>
-                    <p>x</p>
-                     <%else%>
-                    <p>show</p>
+                    <%if event.venue.geo_location[:lat] != '' && event.venue.geo_location[:long] != ''%>
+                    <p>show map</p>
                     <%end%>
+                    <p>find more shows here</p>
 
                   </div>
                 </div>

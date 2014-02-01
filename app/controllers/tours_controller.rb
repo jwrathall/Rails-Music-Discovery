@@ -16,53 +16,55 @@ class ToursController < ApplicationController
 
     events = json['events']['event']
     @band_name = json['events']['@attr']['artist']
-    @json = events
     artist_events = Array.new()
-    events.each do |evt|
-      event = Event.new()
-      event.date = evt['startDate']
-      artists = Array.new()
-      if evt['artists']['artist'].is_a?(Array) #more than one item
-        evt['artists']['artist'].each do |a|
-          artists.push(a)
-        end
-      else
-         artists.push(evt['artists']['artist'])
+    if events.is_a?(Array)
+      events.each do |evt|
+        artist_events.push(set_event_object(evt))
       end
-      event.artists = artists
-
-      venue = Venue.new()
-      if evt['venue']['name'].nil?
-        venue.name = 'not available'
-      else
-
-        venue.name = evt['venue']['name']
-      end
-
-      venue.city = evt['venue']['location']['city']
-      venue.country = evt['venue']['location']['country']
-      venue.street = evt['venue']['location']['street']
-      venue.postal_code = evt['venue']['location']['postalcode']
-      venue.geo_location = {:lat => evt['venue']['location']['geo:point']['geo:lat'],:long => evt['venue']['location']['geo:point']['geo:long']}
-      event.venue = venue
-
-
-      artist_events.push(event)
+    else
+      artist_events.push(set_event_object(events))
     end
+
     @events = artist_events
 
 
 
   end
-end
+  def set_event_object(evt)
+    event = Event.new()
+    if evt['startDate'].nil?
+      event.date = nil
+    else
+      event.date = evt['startDate']
+    end
 
-#"location": {
-#    "geo:point": {
-#    "geo:lat": "",
-#    "geo:long": ""
-#
-#
-#
-#
-#   venue.geo_location = {:lat => evt['venue']['location']['geo:point']['geo:lat'],:long => evt['venue']['location']['geo:point']['geo:long']}
-# },
+    artists = Array.new()
+    if evt['artists']['artist'].is_a?(Array) #more than one item
+      evt['artists']['artist'].each do |a|
+        artists.push(a)
+      end
+    else
+      artists.push(evt['artists']['artist'])
+    end
+    event.artists = artists
+
+    venue = Venue.new()
+    if evt['venue']['name'].nil?
+      venue.name = 'not available'
+    else
+
+      venue.name = evt['venue']['name']
+    end
+
+    venue.city = evt['venue']['location']['city']
+    venue.country = evt['venue']['location']['country']
+    venue.street = evt['venue']['location']['street']
+    venue.postal_code = evt['venue']['location']['postalcode']
+    venue.geo_location = {:lat => evt['venue']['location']['geo:point']['geo:lat'],:long => evt['venue']['location']['geo:point']['geo:long']}
+    event.venue = venue
+
+    event.phone = evt['venue']['phone']
+    event.website = evt['venue']['website']
+    return event
+  end
+end

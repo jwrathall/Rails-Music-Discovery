@@ -1,6 +1,5 @@
 class Venue
-  attr_accessor :name, :geo_location,:city, :country,:street,:postal_code, :phone, :website
-
+  attr_accessor :name, :geo_location,:city, :country,:street,:postal_code
   def name=(name)
     @name = name
   end
@@ -18,11 +17,5 @@ class Venue
   end
   def postal_code=(postal_code)
     @postal_code = postal_code
-  end
-  def phone=(phone)
-    @phone = phone
-  end
-  def website=(website)
-    @website = website
   end
 end
