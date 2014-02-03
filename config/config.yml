@@ -7,6 +7,8 @@ last_fm_buy_links: ''
 last_fm_artist_info: '?method=artist.getinfo&mbid='
 last_fm_similar_artists: '?method=artist.getsimilar&mbid='
 last_fm_get_events: '?method=artist.getevents&'
+last_fm_release_info: '?method=album.getinfo&'
+
 
 
 
