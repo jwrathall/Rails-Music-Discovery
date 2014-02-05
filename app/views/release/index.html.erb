@@ -5,7 +5,10 @@
 
   <div class="row">
     <div class="col-xs-12 col-md-12">
-            <%=@json%>
+            <%=@release.release_date%> </br>
+            <%=@release.release_name%> </br>
+      <img src='<%=@release.release_image%>'/>
      </div>
   </div>
+  <%=@json%>
 </div>
