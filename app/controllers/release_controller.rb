@@ -1,5 +1,6 @@
 class ReleaseController < ApplicationController
   require 'release'
+  require 'track'
   def index
     @release_name = params['release']
     @artist_name = params['artist']
@@ -22,6 +23,17 @@ class ReleaseController < ApplicationController
       release.mbid = json['album']['mbid']
       release.id = json['album']['id']
       release.release_image = json['album']['image'][2]['#text']
+      tracks = Array.new
+      json['album']['tracks']['track'].each do |t|
+        track = Track.new
+        track.name = t['name']
+        track.duration = t['duration']
+        track.mbid = t['mbid']
+        tracks.push(track)
+      end
+      release.tracks = tracks
+      @sec =   324%60
+      @tracks = json['album']['tracks']['track']
       @release = release
 
      @json = json

@@ -3,12 +3,25 @@
     <h1><%=@band_name%></h1>
   </div>
 
-  <div class="row">
-    <div class="col-xs-12 col-md-12">
-            <%=@release.release_date%> </br>
-            <%=@release.release_name%> </br>
-      <img src='<%=@release.release_image%>'/>
+
+      <div class='well well-lg'>
+        <div class="row">
+          <div class="col-md-2">
+            <img src='<%=@release.release_image%>'/>
+          </div>
+          <div class="col-md-2">
+            <p class="highlight"><%=@release.release_date.strftime('%B %d, %Y')%></p>
+            <p class="name-md"><%=@release.release_name%></p>
+          </div>
+          <div class="col-md-6">
+            <%@release.tracks.each do |t|%>
+                <%=t.name%>&nbsp;
+                <em><%=t.duration_in_minutes%></em>
+                </br>
+            <%end%>
+
+          </div>
+        </div>
+
+      </div>
      </div>
-  </div>
-  <%=@json%>
-</div>

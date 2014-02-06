@@ -1,5 +1,5 @@
 class Release
-  attr_accessor :artist, :release_name, :release_date, :mbid, :id, :release_image, :summary
+  attr_accessor :artist, :release_name, :release_date, :mbid, :id, :release_image, :summary, :tracks
   def artist=(artist)
     @artist = artist
   end
@@ -7,7 +7,8 @@ class Release
     @release_name = value
   end
   def release_date=(value)
-    @release_date = value
+    time = Time.parse(value)
+    @release_date = time
   end
   def mbid=(value)
     @mbid = value
@@ -20,5 +21,8 @@ class Release
   end
   def summary=(value)
     @summary = value
+  end
+  def tracks=(value)
+    @tracks = value
   end
 end
