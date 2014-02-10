@@ -1,27 +1,38 @@
 <div class="container">
   <div class="jumbotron jumbotron-releases">
-    <h1><%=@band_name%></h1>
+    <h1><%=@artist_name%></h1>
   </div>
 
 
       <div class='well well-lg'>
         <div class="row">
-          <div class="col-md-2">
+          <div class="col-lg-2 col-md-3 col-sm-4">
             <img src='<%=@release.release_image%>'/>
           </div>
-          <div class="col-md-2">
+          <div class="col-md-2 col-sm-4">
             <p class="highlight"><%=@release.release_date.strftime('%B %d, %Y')%></p>
             <p class="name-md"><%=@release.release_name%></p>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6 col-sm-4">
             <%@release.tracks.each do |t|%>
                 <%=t.name%>&nbsp;
                 <em><%=t.duration_in_minutes%></em>
                 </br>
             <%end%>
-
           </div>
         </div>
+        <div class="row">
+          <div class="col-md-2">
+            <%= link_to 'http://www.7digital.com/artist/'+ @artist_name_dash +'/release/'+ @release_name_dash, :target => '_blank' do%>
+                <div class='icomatic' style="display:inline;font-size:14px; margin:0 0 0 10px;"><span>cart</span>&nbsp;<span>7digital</span></div>
+            <%end%>
 
+          </div>
+          <div class="col-md-2">
+            <%=link_to 'http://www.amazon.com/gp/search?ie=UTF8&keywords='+ @artist_name +'%20'+ @release_name, :target => '_blank' do%>
+            <div class='icomatic' style="display:inline;font-size:14px; margin:0 0 0 10px;"><span>cart</span>&nbsp;<span>Amazon</span></div>
+            <%end%>
+          </div>
+        </div>
       </div>
      </div>

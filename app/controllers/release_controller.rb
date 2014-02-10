@@ -4,6 +4,9 @@ class ReleaseController < ApplicationController
   def index
     @release_name = params['release']
     @artist_name = params['artist']
+    @release_name_dash = @release_name.gsub(/\s+/, '-')
+    @artist_name_dash = @artist_name.gsub(/\s+/, '-')
+
 
     conn_lf = Faraday.new(:url => Settings.last_fm_url) do |faraday|
       faraday.request  :url_encoded             # form-encode POST params
