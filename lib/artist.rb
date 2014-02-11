@@ -1,11 +1,11 @@
 class Artist
   #TODO create a base class of Artists and rename this to search_artist and inherit from artist
-  attr_accessor :relevance, :id, :type ,:name, :country_id, :country_id, :country_name, :area_id, :area_name, :start, :stop, :members, :genre, :description
+  attr_accessor :relevance, :mbid, :type ,:name, :country_id, :country_id, :country_name, :area_id, :area_name, :start, :stop, :members, :genre, :description
   def relevance=(relevance)
     @relevance = relevance
   end
-  def id=(id)
-     @id = id
+  def mbid=(id)
+     @mbid = id
   end
   def name=(name)
     @name = name

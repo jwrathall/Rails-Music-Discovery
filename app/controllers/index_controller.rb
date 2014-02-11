@@ -29,18 +29,19 @@ class IndexController < ApplicationController
     artists = Array.new
     xml.xpath('//metadata//artist-list//artist').each do |artist|
       myartist = Artist.new()
-      myartist.relevance = artist.attribute('score')
-      myartist.type = artist.attribute('type')
+      myartist.relevance = artist.attribute('score').to_s
+      myartist.type = artist.attribute('type').to_s
       myartist.name = artist.child().text()
-      myartist.id = artist.attribute('id')
+      id =
+      myartist.mbid = artist.attribute('id').to_s
 
-      myartist.country_id = artist.xpath('area/@id')
+      myartist.country_id = artist.xpath('area/@id').to_s
       if artist.xpath('area/name') != ''
         myartist.country_name = artist.xpath('area/name').text()
       else
         myartist.country_name = ''
       end
-      myartist.area_id = artist.xpath('begin-area/@id')
+      myartist.area_id = artist.xpath('begin-area/@id').to_s
       myartist.area_name =artist.xpath('begin-area/name').text()
 
       if artist.xpath('tag-list/tag').nil?

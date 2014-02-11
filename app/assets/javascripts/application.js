@@ -15,4 +15,8 @@
 //= require lodash.min
 //= require bootstrap.min
 //= require angular.min
+//= require angular-resource.min
+//= require angular-sanitize.min
+//= require angular-cookies.min
+//= require app/app.js
 //= require_tree .
