@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  mbid: MyString
+  name: MyString
+  type: 
+  country_name: MyString
+  country_id: MyString
+  area_name: MyString
+  area_id: MyString
+
+two:
+  user_id: 1
+  mbid: MyString
+  name: MyString
+  type: 
+  country_name: MyString
+  country_id: MyString
+  area_name: MyString
+  area_id: MyString
