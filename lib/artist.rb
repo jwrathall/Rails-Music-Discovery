@@ -1,6 +1,6 @@
 class Artist
   #TODO create a base class of Artists and rename this to search_artist and inherit from artist
-  attr_accessor :relevance, :mbid, :type ,:name, :country_id, :country_id, :country_name, :area_id, :area_name, :start, :stop, :members, :genre, :description
+  attr_accessor :relevance, :mbid, :artist_type ,:name, :country_id, :country_id, :country_name, :area_id, :area_name, :start, :stop, :members, :genre_attribute, :description
   def relevance=(relevance)
     @relevance = relevance
   end
@@ -10,8 +10,8 @@ class Artist
   def name=(name)
     @name = name
   end
-  def type=(type)
-    @type = type
+  def artist_type=(type)
+    @artist_type = type
   end
   def country_id=(id)
     @country_id=id
@@ -34,9 +34,9 @@ class Artist
   def members=(members)
     @members = members
   end
-  def genre=(genre)
+  def genre_attribute=(value)
     #needs to be an array to hold the tag types
-    @genre = genre
+    @genre_attribute = value
   end
 
   def description=(description)

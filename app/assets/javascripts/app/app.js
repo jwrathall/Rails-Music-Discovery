@@ -13,17 +13,18 @@ musicApp.controller('searchResultsController',
     function($scope, $http){
         $scope.saveArtist = function(data){
             //great, got the data now send it to a rails controller to have some fun
-            console.log(data);
-            $http({method: 'POST', url: '/user/save_artist', data: data}).
+            //angular.toJson(data)
+            console.log(angular.toJson(data));
+            $http({method: 'POST', url: '/user/save_artist', data: angular.toJson(data), headers: {'Content-Type':'application/json'}}).
                 success(function(data, status, headers, config) {
                     // this callback will be called asynchronously
                     // when the response is available
-                    console.log(data)
+                    console.log(data, status, headers, config)
                 }).
                 error(function(data, status, headers, config) {
                     // called asynchronously if an error occurs
                     // or server returns response with an error status.
-                    console.log(data)
+                    console.log(data, status, headers, config)
                 });
         }
     }
@@ -51,31 +52,3 @@ musicApp.directive('saveArtist',
     }
 );
 
-
-/*
-
-$http({
-    method: "POST",
-    // url: "http://staging.evas.bm/wp-content/themes/evas/form-process.php",
-    //url: "http://173.192.219.24/~evasnai/staging/wp-content/themes/evas/form-process.php",
-    url: "http://evasnailcare.com/wp-content/themes/evas/form-process.php",
-    data: $.param($scope.data),
-    headers : {'Content-Type':'application/x-www-form-urlencoded'}
-})
-    .success(function(data){
-        if(!data.success){
-            $scope.response = {
-                success:false,
-                css:"error",
-                message:data.message
-            };
-        }else{
-            $scope.response = {
-                success:true,
-                css:"success",
-                message:data.message
-            };
-
-        }
-    }
-);*/

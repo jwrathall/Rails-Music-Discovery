@@ -2331,6 +2331,26 @@
       <column name="viewowner" sqlType="name" length="2147483647" precision="0" nullable="true" jdbcType="12"/>
       <column name="definition" sqlType="text" length="2147483647" precision="0" nullable="true" jdbcType="12"/>
     </table>
+    <table name="genres" schema="public" catalog="dev_music" type="TABLE">
+      <column name="id" sqlType="serial" length="10" precision="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgnZ2VucmVzX2lkX3NlcSc6OnJlZ2NsYXNzKQ==" autoIncrement="true"/>
+      <column name="user_artist_id" sqlType="int4" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="tag" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="created_at" sqlType="timestamp" length="29" precision="6" nullable="true" jdbcType="93"/>
+      <column name="updated_at" sqlType="timestamp" length="29" precision="6" nullable="true" jdbcType="93"/>
+      <primary-key name="genres_pkey" columns="id"/>
+    </table>
+    <table name="genres_id_seq" schema="public" catalog="dev_music" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" length="2147483647" precision="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" length="1" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" length="1" precision="0" nullable="false" jdbcType="-7"/>
+    </table>
     <table name="schema_migrations" schema="public" catalog="dev_music" type="TABLE">
       <column name="version" sqlType="varchar" length="255" precision="0" nullable="false" jdbcType="12"/>
       <index name="unique_schema_migrations" unique="true" columns="version"/>
@@ -2340,7 +2360,7 @@
       <column name="user_id" sqlType="int4" length="10" precision="0" nullable="true" jdbcType="4"/>
       <column name="mbid" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="name" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12"/>
-      <column name="type" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="artist_type" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="country_name" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="country_id" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="area_name" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12"/>

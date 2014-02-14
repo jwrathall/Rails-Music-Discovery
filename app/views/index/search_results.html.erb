@@ -15,7 +15,7 @@
             </div>
             <div class="col-md-9 col-sm-9 col-xs-12">
               <div>
-                  <p class="highlight"><%= page.type%></p>
+                  <p class="highlight"><%= page.artist_type%></p>
                   <%= link_to releases_path({:id => page.mbid}) do%>
                       <div style="width:auto; float:left;">
                         <p class="name-lg"><%= page.name%></p>
@@ -30,10 +30,10 @@
                 <%unless page.description.empty?%>
                     <p> <%= page.description%></p>
                 <%end%>
-                <%unless page.genre == '' %>
-                    <%@genres = page.genre[0,5]%>
-                    <%@genres.each_with_index do |genre, i|%>
-                        <%=genre%> <%=', ' unless i == @genres.length-1%>
+                <%unless page.genre_attribute == '' %>
+                    <%@genres = page.genre_attribute[0,5]%>
+                    <%@genres.each_with_index do |g, i|%>
+                        <%=g%> <%=', ' unless i == @genres.length-1%>
                     <%end%>
                 <%end%>
               </div>
