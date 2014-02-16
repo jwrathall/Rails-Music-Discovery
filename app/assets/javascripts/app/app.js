@@ -24,7 +24,27 @@ musicApp.controller('searchResultsController',
                 error(function(data, status, headers, config) {
                     // called asynchronously if an error occurs
                     // or server returns response with an error status.
+                    console.log('error:' + data)
+                });
+        }
+    }
+);
+musicApp.controller('catalogController',
+    function($scope, $http){
+        $scope.removeArtist = function(data){
+            //great, got the data now send it to a rails controller to have some fun
+            //angular.toJson(data)
+            console.log(angular.toJson(data));
+            $http({method: 'POST', url: '/user/remove_artist', data: angular.toJson(data), headers: {'Content-Type':'application/json'}}).
+                success(function(data, status, headers, config) {
+                    // this callback will be called asynchronously
+                    // when the response is available
                     console.log(data, status, headers, config)
+                }).
+                error(function(data, status, headers, config) {
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                    console.log('error:' + data)
                 });
         }
     }
@@ -40,6 +60,27 @@ musicApp.directive('saveArtist',
                 event: '&event'
             },
             template: '<div class="icomatic" style="font-size:30px;padding-bottom:10px;"><span>plus</span></div>',
+            link: function(scope, el, attr){
+                el.on('click',
+                    function(e){
+                        e.preventDefault();
+                        scope.event(attr.event);
+                    }
+                );
+            }
+        }
+    }
+);
+musicApp.directive('removeArtist',
+    function(){
+        return{
+            restrict: 'E',
+            replace: true,
+            transclude: true,
+            scope: {
+                event: '&event'
+            },
+            template: '<div class="icomatic" style="font-size:30px;padding-bottom:10px;"><span>minus</span></div>',
             link: function(scope, el, attr){
                 el.on('click',
                     function(e){

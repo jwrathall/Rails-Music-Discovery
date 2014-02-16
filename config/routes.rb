@@ -1,6 +1,5 @@
 DevMusicCom::Application.routes.draw do
 
-  get "user_artists/index"
  # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -12,6 +11,7 @@ DevMusicCom::Application.routes.draw do
   get 'artist/similar/:id', :to => 'similar#index', as: :similar
   get 'artist/tours/:id', :to => 'tours#index', as: :tour
   post 'user/save_artist', :to => 'user_artists#index'
+  get 'user/catalog', :to => 'catalog#index', as: :catalog
 
   resources :index, defaults: {format: :json}, only: [:index]  do
 
