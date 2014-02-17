@@ -30,25 +30,24 @@ musicApp.controller('searchResultsController',
     }
 );
 musicApp.controller('catalogController',
-    function($scope, $http){
+    function($scope, $http, $resource){
+        var artists = $resource('/user/all_artists');
+        $scope.artists = artists.query();
+        console.log(artists.query());
+
+        //TODO move all this into a factory and implement ngResource
         $scope.removeArtist = function(data){
-            //great, got the data now send it to a rails controller to have some fun
-            //angular.toJson(data)
-            console.log(angular.toJson(data));
-            $http({method: 'POST', url: '/user/remove_artist', data: angular.toJson(data), headers: {'Content-Type':'application/json'}}).
+            $http({method: 'delete', url: '/user/catalog', data: angular.toJson(data), headers: {'Content-Type':'application/json'}}).
                 success(function(data, status, headers, config) {
-                    // this callback will be called asynchronously
-                    // when the response is available
                     console.log(data, status, headers, config)
                 }).
                 error(function(data, status, headers, config) {
-                    // called asynchronously if an error occurs
-                    // or server returns response with an error status.
                     console.log('error:' + data)
                 });
         }
     }
 );
+
 
 musicApp.directive('saveArtist',
     function(){

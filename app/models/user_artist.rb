@@ -16,6 +16,5 @@ class UserArtist < ActiveRecord::Base
      else
        return true
      end
-
    end
 end

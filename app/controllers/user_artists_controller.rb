@@ -3,6 +3,11 @@ class UserArtistsController < ApplicationController
   respond_to :json
 
   def index
+    #TODO check for user_id
+    artists = UserArtist.all
+    render json: artists.to_json(:include => :genres)
+  end
+  def save
     message = ''
     status = 0
     data = params
@@ -20,5 +25,10 @@ class UserArtistsController < ApplicationController
       end
 
     render json:  message, :status => status
+  end
+  def remove
+    artist_id = params['catalog']['_json']
+    UserArtist.delete(artist_id)
+    render json:  artist_id
   end
 end

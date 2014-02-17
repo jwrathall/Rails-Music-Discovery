@@ -4,45 +4,38 @@
       Hi user, here you can see all of the artists in your catalog.
     </p>
   </div>
+
   <div class="row" ng-controller="catalogController">
       <div class="col-lg-12 col-xs-12">
-        <% @artists.each_with_index do |artist, index| %>
-            <div class='well well-lg'>
-              <div class="row">
-                <div class="col-md-1 col-sm-1">
-                  <remove-artist event="removeArtist(<%=artist.id%>)"></remove-artist>
-                </div>
-                <div class="col-md-9 col-sm-9 col-xs-12">
-                  <div>
-                    <p class="highlight"><%= artist.artist_type%></p>
-                    <%= link_to releases_path({:id => artist.mbid}) do%>
-                        <div style="width:auto; float:left;">
-                          <p class="name-lg"><%= artist.name%></p>
-                        </div>
-                        <div class='icomatic' style="float:left; display:inline;font-size:20px; margin:10px 0 0 10px;"><span>search</span></div>
-                    <%end%>
+        <div class='well well-lg' ng-repeat="artist in artists">
+          <div class="row">
+              <div class="col-md-1 col-sm-1">
+                <remove-artist event=""></remove-artist>
+              </div>
+              <div class="col-md-9 col-sm-9 col-xs-12">
+                <div>
+                  <p class="highlight">{{artist.type}}</p>
+                  <div style="width:auto; float:left;">
+                    <p class="name-lg">{{artist.name}}</p>
                   </div>
-                  <div>
-                    <%unless artist.area_name.empty? && artist.country_name.empty?%>
-                        <p class="highlight"><%= artist.area_name%> <%= artist.country_name%></p>
-                    <%end%>
-                    <%unless artist.description.empty?%>
-                        <p> <%= artist.description%></p>
-                    <%end%>
-                    <%unless artist.genres == '' %>
-                        <%@genres = artist.genres[0,5]%>
-                        <%@genres.each_with_index do |g, i|%>
-                            <%=g.tag%> <%=', ' unless i == @genres.length-1%>
-                        <%end%>
-                    <%end%>
-                  </div>
+                  <div class='icomatic' style="float:left; display:inline;font-size:20px; margin:10px 0 0 10px;"><span>search</span></div>
                 </div>
-                <div class="col-md-2 col-sm-3 col-xs-12">
+                <div>
+                    <p class="highlight">{{ artist.area_name}} {{artist.country_name}}</p>
+                    <p>{{artist.description}}</p>
+                    <div>
+                      <span ng-repeat="genre in artist.genres">{{genre.tag}}&nbsp;</span>
+                    </div>
 
                 </div>
               </div>
+              <div class="col-md-2 col-sm-3 col-xs-12">
+
+              </div>
             </div>
-        <% end %>
+        </div>
       </div>
     </div>
 </div>
+
+

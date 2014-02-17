@@ -10,8 +10,11 @@ DevMusicCom::Application.routes.draw do
   get 'artist/release', :to => 'release#index', as: :release
   get 'artist/similar/:id', :to => 'similar#index', as: :similar
   get 'artist/tours/:id', :to => 'tours#index', as: :tour
-  post 'user/save_artist', :to => 'user_artists#index'
+  post 'user/save_artist', :to => 'user_artists#save'
+  delete 'user/remove_artist', :to => 'user_artists#delete'
+  get 'user/all_artists', :to =>  'user_artists#index'
   get 'user/catalog', :to => 'catalog#index', as: :catalog
+
 
   resources :index, defaults: {format: :json}, only: [:index]  do
 
