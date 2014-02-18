@@ -28,7 +28,7 @@ class UserArtistsController < ApplicationController
   end
   def destroy
     artist_id = params['_json']
-    UserArtist.delete(artist_id)
+    UserArtist.destroy(artist_id)
     render json:  artist_id
   end
 end

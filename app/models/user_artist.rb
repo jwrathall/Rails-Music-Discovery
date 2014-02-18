@@ -1,5 +1,5 @@
 class UserArtist < ActiveRecord::Base
-   has_many :genres
+   has_many :genres, :dependent => :destroy
    accepts_nested_attributes_for :genres
    attr_accessible  :user_id, :mbid, :name, :artist_type, :country_name, :country_id, :area_name, :area_id, :description,:genres
 
