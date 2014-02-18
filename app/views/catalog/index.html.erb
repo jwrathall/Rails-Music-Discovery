@@ -10,21 +10,23 @@
         <div class='well well-lg' ng-repeat="artist in artists">
           <div class="row">
               <div class="col-md-1 col-sm-1">
-                <remove-artist event=""></remove-artist>
+                <remove-artist model="artist" event="removeArtist"></remove-artist>
               </div>
               <div class="col-md-9 col-sm-9 col-xs-12">
                 <div>
                   <p class="highlight">{{artist.type}}</p>
-                  <div style="width:auto; float:left;">
-                    <p class="name-lg">{{artist.name}}</p>
-                  </div>
-                  <div class='icomatic' style="float:left; display:inline;font-size:20px; margin:10px 0 0 10px;"><span>search</span></div>
+                  <a href="/artist/releases/{{artist.mbid}}">
+                      <div style="width:auto; float:left;">
+                        <p class="name-lg">{{artist.name}}</p>
+                      </div>
+                      <div class='icomatic' style="float:left; display:inline;font-size:20px; margin:10px 0 0 10px;"><span>search</span></div>
+                  </a>
                 </div>
                 <div>
                     <p class="highlight">{{ artist.area_name}} {{artist.country_name}}</p>
                     <p>{{artist.description}}</p>
                     <div>
-                      <span ng-repeat="genre in artist.genres">{{genre.tag}}&nbsp;</span>
+                      <span ng-repeat="genre in artist.genres" genre-format="{{genre.tag}}"></span>
                     </div>
 
                 </div>

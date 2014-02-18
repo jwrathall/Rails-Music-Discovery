@@ -33,18 +33,43 @@ musicApp.controller('catalogController',
     function($scope, $http, $resource){
         var artists = $resource('/user/all_artists');
         $scope.artists = artists.query();
-        console.log(artists.query());
+
 
         //TODO move all this into a factory and implement ngResource
         $scope.removeArtist = function(data){
-            $http({method: 'delete', url: '/user/catalog', data: angular.toJson(data), headers: {'Content-Type':'application/json'}}).
+            console.log(data);
+            $http({method: 'DELETE', url: '/user/destroy_artist', data:angular.toJson(data.id), headers: {'Content-Type':'application/json'}}).
                 success(function(data, status, headers, config) {
-                    console.log(data, status, headers, config)
+                    console.log(data)
+                       var index =$scope.artists.indexOf(data);
+                        $scope.artists.splice(1-index,1);
+                    //console.log($scope.artists);
                 }).
                 error(function(data, status, headers, config) {
                     console.log('error:' + data)
                 });
         }
+    }
+);
+
+musicApp.directive('genreFormat',
+    function(){
+        return {
+            replace: true,
+            scope: { genreFormat: '@' },
+            link: function(scope, el, attrs) {
+                if(!scope.$parent.$last){
+                    scope.$watch('genreFormat', function(value) {
+                       el.html(value + ', ')
+                    });
+                }else{
+                    scope.$watch('genreFormat', function(value) {
+                        el.html(value)
+                    });
+                }
+
+            }
+        };
     }
 );
 
@@ -70,6 +95,7 @@ musicApp.directive('saveArtist',
         }
     }
 );
+//http://odetocode.com/blogs/scott/archive/2013/09/11/moving-data-in-an-angularjs-directive.aspx
 musicApp.directive('removeArtist',
     function(){
         return{
@@ -77,14 +103,15 @@ musicApp.directive('removeArtist',
             replace: true,
             transclude: true,
             scope: {
-                event: '&event'
+                event: '=event',
+                model: '='
             },
             template: '<div class="icomatic" style="font-size:30px;padding-bottom:10px;"><span>minus</span></div>',
             link: function(scope, el, attr){
                 el.on('click',
                     function(e){
                         e.preventDefault();
-                        scope.event(attr.event);
+                        scope.event(scope.model);
                     }
                 );
             }

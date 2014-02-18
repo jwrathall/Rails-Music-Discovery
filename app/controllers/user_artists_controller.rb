@@ -26,8 +26,8 @@ class UserArtistsController < ApplicationController
 
     render json:  message, :status => status
   end
-  def remove
-    artist_id = params['catalog']['_json']
+  def destroy
+    artist_id = params['_json']
     UserArtist.delete(artist_id)
     render json:  artist_id
   end

@@ -11,7 +11,7 @@ DevMusicCom::Application.routes.draw do
   get 'artist/similar/:id', :to => 'similar#index', as: :similar
   get 'artist/tours/:id', :to => 'tours#index', as: :tour
   post 'user/save_artist', :to => 'user_artists#save'
-  delete 'user/remove_artist', :to => 'user_artists#delete'
+  delete 'user/destroy_artist', :to => 'user_artists#destroy'
   get 'user/all_artists', :to =>  'user_artists#index'
   get 'user/catalog', :to => 'catalog#index', as: :catalog
 
