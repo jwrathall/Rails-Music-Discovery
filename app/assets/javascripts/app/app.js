@@ -1,7 +1,8 @@
 var musicApp = angular.module('musicApp', [
     'ngCookies',
     'ngResource',
-    'ngSanitize'
+    'ngSanitize',
+    'ui.bootstrap'
 ]);
 musicApp.config([
     "$httpProvider", function($httpProvider) {
@@ -10,16 +11,25 @@ musicApp.config([
 ]);
 
 musicApp.controller('searchResultsController',
-    function($scope, $http){
+    function($scope, $http, $modal, $timeout){
         $scope.saveArtist = function(data){
-            //great, got the data now send it to a rails controller to have some fun
-            //angular.toJson(data)
-            console.log(angular.toJson(data));
             $http({method: 'POST', url: '/user/save_artist', data: angular.toJson(data), headers: {'Content-Type':'application/json'}}).
                 success(function(data, status, headers, config) {
-                    // this callback will be called asynchronously
-                    // when the response is available
-                    console.log(data, status, headers, config)
+                    console.log(data);
+                        var modalContent = {
+                                artist: 'Deftones',
+                                message: 'has been saved to your catalog'
+                            }
+                       var modalInstance = $modal.open({
+                            templateUrl: '/app/partials/modal.html',
+                            controller: 'modalController',
+                            resolve: {
+                                returnData: function () {
+                                    return modalContent;
+                                }
+                            }
+                        });
+                    $timeout(modalInstance.close, 1500);
                 }).
                 error(function(data, status, headers, config) {
                     // called asynchronously if an error occurs
@@ -38,12 +48,12 @@ musicApp.controller('catalogController',
         //TODO move all this into a factory and implement ngResource
         $scope.removeArtist = function(data){
             console.log(data);
+            var index =$scope.artists.indexOf(data);
+
+            //console.log($scope.artists);
             $http({method: 'DELETE', url: '/user/destroy_artist', data:angular.toJson(data.id), headers: {'Content-Type':'application/json'}}).
                 success(function(data, status, headers, config) {
-                    console.log(data)
-                       var index =$scope.artists.indexOf(data);
-                        $scope.artists.splice(1-index,1);
-                    //console.log($scope.artists);
+                    $scope.artists.splice(index,1);
                 }).
                 error(function(data, status, headers, config) {
                     console.log('error:' + data)
@@ -51,6 +61,13 @@ musicApp.controller('catalogController',
         }
     }
 );
+
+musicApp.controller('modalController',
+    function($scope, $modalInstance, returnData){
+        $scope.data = returnData;
+    }
+);
+
 
 musicApp.directive('genreFormat',
     function(){
@@ -115,6 +132,31 @@ musicApp.directive('removeArtist',
                     }
                 );
             }
+        }
+    }
+);
+
+musicApp.service('modalService',
+    function($modal){
+        var modalDefaults = {
+            backdrop: true,
+            keyboard: true,
+            modalFade: true,
+            templateUrl: '/app/partials/modal.html'
+        }
+        var modalOptions = {
+            message: 'perform this action'
+        };
+
+        this.showModal = function(customOptions){
+           return this.show({}, customOptions);
+        }
+        this.show = function(customOptions){
+
+            modalDefaults.controller = function ($scope, $modalInstance) {
+                $scope.modalOptions = customOptions;
+            }
+            return $modal.open(modalDefaults).result;
         }
     }
 );

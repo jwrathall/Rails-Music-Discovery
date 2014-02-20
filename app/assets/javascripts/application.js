@@ -18,5 +18,6 @@
 //= require angular-resource.min
 //= require angular-sanitize.min
 //= require angular-cookies.min
+//= require ui-bootstrap-0.10.0.min
 //= require app/app.js
 //= require_tree .

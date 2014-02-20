@@ -14,7 +14,7 @@ class UserArtistsController < ApplicationController
     artist = UserArtist.new(data)
     #TODO need some error checking too
       if artist.save
-        data['genre_attribute'].each_with_index do |t,i|
+        data['genre_attribute'].each do |t|
           artist.genres.create(:tag => t)
         end
         message = 'saved'
