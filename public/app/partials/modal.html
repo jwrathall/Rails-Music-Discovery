@@ -2,10 +2,10 @@
 <div class="modal-header">
     <div class="row">
         <div class="col-sm-1">
-            <!--<div class='icomatic' style="float:left; display:inline;font-size:20px; margin:5px 0 0 10px;"><span>check</span></div>-->
+            <div class='icomatic' style="float:left; display:inline;font-size:20px; margin:5px 0 0 10px;"><span>{{icon}}</span></div>
         </div>
         <div class="col-sm-11">
-            <h2>{{data.artist}}</h2>
+            <h2>{{data.title}}</h2>
         </div>
     </div>
 
@@ -16,7 +16,7 @@
           &nbsp;
         </div>
         <div class="col-sm-11">
-            <p>{{data.message}}</p>
+            <p><span class="name-md">{{data.artist}}</span>&nbsp;{{data.message}}</p>
         </div>
     </div>
 </div>

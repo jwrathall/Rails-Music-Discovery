@@ -11,52 +11,59 @@ musicApp.config([
 ]);
 
 musicApp.controller('searchResultsController',
-    function($scope, $http, $modal, $timeout){
+    function($scope, $http, dialogFactory){
         $scope.saveArtist = function(data){
+            var artist = data;
             $http({method: 'POST', url: '/user/save_artist', data: angular.toJson(data), headers: {'Content-Type':'application/json'}}).
                 success(function(data, status, headers, config) {
                     console.log(data);
+                    if(data === 'saved'){
                         var modalContent = {
-                                artist: 'Deftones',
-                                message: 'has been saved to your catalog'
-                            }
-                       var modalInstance = $modal.open({
-                            templateUrl: '/app/partials/modal.html',
-                            controller: 'modalController',
-                            resolve: {
-                                returnData: function () {
-                                    return modalContent;
-                                }
-                            }
-                        });
-                    $timeout(modalInstance.close, 1500);
+                            title: 'Artist Saved',
+                            artist: artist.name,
+                            message: 'has been saved to your catalog',
+                            icon: 'check'
+                        }
+                    }else{
+                        var modalContent = {
+                            title: 'Artist Exists',
+                            artist: artist.name,
+                            message: 'already exists in your catalog',
+                            icon: 'cancel'
+                        }
+                    }
+                    dialogFactory.notify(modalContent);
                 }).
                 error(function(data, status, headers, config) {
-                    // called asynchronously if an error occurs
-                    // or server returns response with an error status.
-                    console.log('error:' + data)
+                    var modalContent = {
+                        title: 'Error Adding Artist', artist: '', message: 'There has been an error adding that artist.', icon: 'error'
+                    }
+                    dialogFactory.notify(modalContent);
                 });
         }
     }
 );
 musicApp.controller('catalogController',
-    function($scope, $http, $resource){
+    function($scope, $http, $resource, dialogFactory){
         var artists = $resource('/user/all_artists');
         $scope.artists = artists.query();
-
-
         //TODO move all this into a factory and implement ngResource
         $scope.removeArtist = function(data){
-            console.log(data);
+            var artist = data;
             var index =$scope.artists.indexOf(data);
-
-            //console.log($scope.artists);
             $http({method: 'DELETE', url: '/user/destroy_artist', data:angular.toJson(data.id), headers: {'Content-Type':'application/json'}}).
                 success(function(data, status, headers, config) {
                     $scope.artists.splice(index,1);
+                    var modalContent = {
+                        title: 'Artist Removed', artist: artist.name, message: 'has been removed from your catalog.', icon: 'cancel'
+                    }
+                    dialogFactory.notify(modalContent);
                 }).
                 error(function(data, status, headers, config) {
-                    console.log('error:' + data)
+                    var modalContent = {
+                        title: 'Error Removing Artist', artist: '', message: 'There has been an error removing that artist.', icon: 'error'
+                    }
+                    dialogFactory.notify(modalContent);
                 });
         }
     }
@@ -90,7 +97,6 @@ musicApp.directive('genreFormat',
     }
 );
 
-
 musicApp.directive('saveArtist',
     function(){
         return{
@@ -112,6 +118,7 @@ musicApp.directive('saveArtist',
         }
     }
 );
+
 //http://odetocode.com/blogs/scott/archive/2013/09/11/moving-data-in-an-angularjs-directive.aspx
 musicApp.directive('removeArtist',
     function(){
@@ -136,28 +143,26 @@ musicApp.directive('removeArtist',
     }
 );
 
-musicApp.service('modalService',
-    function($modal){
-        var modalDefaults = {
-            backdrop: true,
-            keyboard: true,
-            modalFade: true,
-            templateUrl: '/app/partials/modal.html'
-        }
-        var modalOptions = {
-            message: 'perform this action'
-        };
+musicApp.factory('dialogFactory',
+    function($modal, $timeout){
+        return{
+            notify: function(modalContent){
+                var modalInstance =  $modal.open({
+                    templateUrl: '/app/partials/modal.html',
+                    controller: 'modalController',
+                    resolve: {
+                        returnData: function () {
+                            return modalContent;
+                        }
+                    }
 
-        this.showModal = function(customOptions){
-           return this.show({}, customOptions);
-        }
-        this.show = function(customOptions){
-
-            modalDefaults.controller = function ($scope, $modalInstance) {
-                $scope.modalOptions = customOptions;
+                });
+                $timeout(modalInstance.close, 2000);
+                return modalInstance;
             }
-            return $modal.open(modalDefaults).result;
+
         }
+
     }
 );
 

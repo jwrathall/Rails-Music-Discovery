@@ -18,13 +18,11 @@ class UserArtistsController < ApplicationController
           artist.genres.create(:tag => t)
         end
         message = 'saved'
-        status = 200
       else
         message = 'exists'
-        status = 409
       end
 
-    render json:  message, :status => status
+    render json:  message
   end
   def destroy
     artist_id = params['_json']
