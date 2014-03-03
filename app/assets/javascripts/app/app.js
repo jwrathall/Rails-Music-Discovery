@@ -45,15 +45,23 @@ musicApp.controller('searchResultsController',
 );
 musicApp.controller('catalogController',
     function($scope, $http, $resource, dialogFactory){
-        var artists = $resource('/user/all_artists');
-        $scope.artists = artists.query();
+
+        $http({method: 'GET', url: '/user/all_artists'}).
+            success(function(data, status, headers, config) {
+                $scope.artists = data;
+            }).
+            error(function(data, status, headers, config) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+
         //TODO move all this into a factory and implement ngResource
         $scope.removeArtist = function(data){
             var artist = data;
-            var index =$scope.artists.indexOf(data);
+            var index =$scope.artists.user_artists.indexOf(data);
             $http({method: 'DELETE', url: '/user/destroy_artist', data:angular.toJson(data.id), headers: {'Content-Type':'application/json'}}).
                 success(function(data, status, headers, config) {
-                    $scope.artists.splice(index,1);
+                    $scope.artists.user_artists.splice(index,1);
                     var modalContent = {
                         title: 'Artist Removed', artist: artist.name, message: 'has been removed from your catalog.', icon: 'cancel'
                     }
@@ -106,7 +114,7 @@ musicApp.directive('saveArtist',
             scope: {
                 event: '&event'
             },
-            template: '<div class="icomatic" style="font-size:30px;padding-bottom:10px;"><span>plus</span></div>',
+            template: '<div class="icomatic" style="font-size:30px;padding-bottom:10px;"><span>save</span></div>',
             link: function(scope, el, attr){
                 el.on('click',
                     function(e){
@@ -130,7 +138,7 @@ musicApp.directive('removeArtist',
                 event: '=event',
                 model: '='
             },
-            template: '<div class="icomatic" style="font-size:30px;padding-bottom:10px;"><span>minus</span></div>',
+            template: '<div class="icomatic" style="font-size:30px;padding-bottom:10px;"><span>delete</span></div>',
             link: function(scope, el, attr){
                 el.on('click',
                     function(e){

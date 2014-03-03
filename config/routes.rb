@@ -12,6 +12,7 @@ DevMusicCom::Application.routes.draw do
   get 'artist/tours/:id', :to => 'tours#index', as: :tour
   post 'user/save_artist', :to => 'user_artists#save'
   delete 'user/destroy_artist', :to => 'user_artists#destroy'
+  #just the api endpoint, not a real page
   get 'user/all_artists', :to =>  'user_artists#index'
   get 'user/catalog', :to => 'catalog#index', as: :catalog
 

@@ -4,8 +4,12 @@ class UserArtistsController < ApplicationController
 
   def index
     #TODO check for user_id
-    artists = UserArtist.all
-    render json: artists.to_json(:include => :genres)
+    user_artists = UserArtist.all
+    artists = {
+        :count => user_artists.count,
+        :user_artists => user_artists.as_json(:include => :genres)
+    }
+    render json: artists
   end
   def save
     message = ''
