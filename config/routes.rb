@@ -21,7 +21,7 @@ DevMusicCom::Application.routes.draw do
   get 'user/catalog', :to => 'catalog#index', as: :catalog
   get 'register', :to => 'user#new', as: :register
   get 'sign_in', :to => 'user#sign_in', as: :signin
-  post 'register', :to => 'user#create'
+  post 'register', :to => 'user#create', as: :create
   get 'forgot_password', :to => 'user#forgot_password', as: :recover
   get 'change_password', :to => 'user#change_password', as: :edit
 

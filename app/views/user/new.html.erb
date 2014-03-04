@@ -1,9 +1,20 @@
-<%= form_for(:user, :url => {:action => 'create'}) do |f| %>
+<div class="jumbotron jumbotron-user">
+  <h3>Registration</h3>
+  <p class="detail-sm">
+    When you register you can save artists to your catalog and be reminded when they release new material
+  </p>
+</div>
+<div class="well well-sm well-release">
+    <%= form_for(:user, :url => {:action => 'create'},:html => {:class => 'form-inline'}) do |f| %>
+        <% if !flash[:notice].blank? %>
+            <div class="notice">
+              <span class="highlight"><%= flash[:notice] %></span>
+            </div>
+        <% end %>
+        <%=render(:partial => 'form', :locals => {:f => f})%>
 
-    <%=render(:partial => 'form', :locals => {:f => f})%>
-
-    <div class="form-buttons">
-      <%= submit_tag("Create User") %>
-    </div>
-
-<% end %>
+        <div class="form-group">
+          <%= submit_tag('Create User', class: 'topcoat-button') %>
+        </div>
+    <% end %>
+</div>

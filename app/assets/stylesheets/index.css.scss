@@ -88,12 +88,23 @@ hr{
   color:#5a5d5e;
   font-weight: 100;
 }
-.jumbotron-releases h1{
-  color:white;
-  font-family: 'source_sans_proextralight';
-  font-weight: 100;
-  margin-bottom: 2px;
+
+.jumbotron-releases, .jumbotron-user {
+  h1 {
+    color:white;
+    font-family: 'source_sans_proextralight';
+    font-weight: 100;
+    margin-bottom: 2px;
+  }
+  h3{
+    color:white;
+    font-family: 'source_sans_proextralight';
+    font-weight: 100;
+    margin-bottom: 2px;
+    font-size: 24px;
+  }
 }
+
 .well, .well-release{
   background-color: #4d5051;
   border-color: #2f3233;
@@ -142,5 +153,6 @@ a:hover{
   font-size: 32px;
 
 }
+
 
   /*http://icomatic.github.io/sample-set/kit/icomatic.html*/

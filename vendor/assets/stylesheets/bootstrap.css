@@ -5593,7 +5593,7 @@ a.list-group-item.active:focus .list-group-item-text {
 
 .panel {
   margin-bottom: 20px;
-  background-color: #ffffff;
+  background-color: #4d5051;
   border: 1px solid transparent;
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
@@ -5772,12 +5772,13 @@ a.list-group-item.active:focus .list-group-item-text {
 }
 
 .panel-default {
-  border-color: #dddddd;
+  border-color: #2f3233;
 }
 
 .panel-default > .panel-heading {
-  color: #333333;
-  background-color: #f5f5f5;
+  color: #fff;
+  background-color: #424546;;
+
   border-color: #dddddd;
 }
 

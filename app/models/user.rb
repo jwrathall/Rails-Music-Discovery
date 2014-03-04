@@ -6,11 +6,11 @@ class User < ActiveRecord::Base
   attr_accessible :username, :password
   attr_protected :salt, :hash_password
 
-  before_save :exists, :create_password
+  before_save  :create_password
 
 
   def create_password
-    if !self.exists
+    if !password.blank?
       self.salt = User.make_salt(username)
       self.hash_password = User.hash_password(password, salt)
       clear_password
@@ -28,8 +28,8 @@ class User < ActiveRecord::Base
     self.password = nil
   end
 
-  def exists
-    user_count = User.where(:username => self.username).count()
+  def self.exists(username='')
+    user_count = User.where(:username => username).count()
     if user_count > 1
       return true
     else
