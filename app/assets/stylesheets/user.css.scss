@@ -12,3 +12,15 @@
   margin:12px 0 0 0;
   display:inline-block;
 }
+.form-error:before, .form-error:after{
+  display: table;
+  content: " ";
+}
+
+.user-error-list {
+  li{
+    list-style: none;
+  }
+  padding:0 1.25rem;
+  margin:0;
+}

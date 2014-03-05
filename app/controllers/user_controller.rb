@@ -1,18 +1,21 @@
 class UserController < ApplicationController
   def new
-
+    flash[:notice]=''
+    @user = User.new()
   end
 
   def create
     @user = User.new(params[:user])
-    #check to see if one exists
-    if User.exists(@user.username)
-      flash[:notice] = 'user already exists'
-      redirect_to(:action => 'create')
-    else
-      @user.save
-      render('new')
+    if @user.valid?
+      begin
+        @user.save!
+      rescue ActiveRecord::RecordNotUnique
+        @user.errors.add(:username, 'has already used')
+      else
+        flash[:notice] = 'User saved.'
+      end
     end
+      render('new')
   end
 
   def sign_in

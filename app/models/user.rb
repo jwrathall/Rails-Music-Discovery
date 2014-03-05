@@ -3,17 +3,21 @@ class User < ActiveRecord::Base
   require 'bcrypt'
   require 'securerandom'
 
+  EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
+
   attr_accessible :username, :password
   attr_protected :salt, :hash_password
 
   before_save  :create_password
+  after_save :clear_fields
+
+  validates :username, :password, :presence => true
 
 
   def create_password
     if !password.blank?
       self.salt = User.make_salt(username)
       self.hash_password = User.hash_password(password, salt)
-      clear_password
     end
   end
   def self.make_salt(username='')
@@ -24,17 +28,8 @@ class User < ActiveRecord::Base
     Digest::SHA2.hexdigest("#{salt}#{password}")
   end
 
-  def clear_password
+  def clear_fields
     self.password = nil
-  end
-
-  def self.exists(username='')
-    user_count = User.where(:username => username).count()
-    if user_count > 1
-      return true
-    else
-      return false
-    end
-
+    self.username = nil
   end
 end

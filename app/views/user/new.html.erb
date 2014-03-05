@@ -5,6 +5,7 @@
   </p>
 </div>
 <div class="well well-sm well-release">
+
     <%= form_for(:user, :url => {:action => 'create'},:html => {:class => 'form-inline'}) do |f| %>
         <% if !flash[:notice].blank? %>
             <div class="notice">
@@ -14,7 +15,7 @@
         <%=render(:partial => 'form', :locals => {:f => f})%>
 
         <div class="form-group">
-          <%= submit_tag('Create User', class: 'topcoat-button') %>
+          <%= submit_tag('Create User', class: 'topcoat-button--cta') %>
         </div>
     <% end %>
 </div>
