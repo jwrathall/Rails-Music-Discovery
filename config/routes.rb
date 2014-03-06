@@ -1,12 +1,4 @@
 DevMusicCom::Application.routes.draw do
-
-  get "sessions/new"
-  get "sessions/create"
-  get "sessions/destroy"
-  get "user/new"
-  get "user/sign_in"
-  get "user/forgot_password"
-  get "user/change_password"
  # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -23,8 +15,10 @@ DevMusicCom::Application.routes.draw do
   get 'user/all_artists', :to =>  'user_artists#index'
   get 'user/catalog', :to => 'catalog#index', as: :catalog
   get 'register', :to => 'user#new', as: :register
-  get 'sign_in', :to => 'user#sign_in', as: :signin
-  post 'register', :to => 'user#create', as: :create
+  post 'register', :to => 'user#create'
+  get 'login', :to => 'sessions#new', as: :login
+  post 'login', :to => 'sessions#create'
+
   get 'forgot_password', :to => 'user#forgot_password', as: :recover
   get 'change_password', :to => 'user#change_password', as: :edit
 

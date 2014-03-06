@@ -1,2 +1,22 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<div class="jumbotron jumbotron-user">
+  <h3>Login</h3>
+  <p class="detail-sm">
+    Welcome
+  </p>
+</div>
+<div class="well well-sm well-release">
+
+  <%= form_for(:user, :url => {:action => 'create'},:html => {:class => 'form-inline'}) do |f| %>
+      <% if !flash[:notice].blank? %>
+          <div class="notice">
+            <span class="highlight"><%= flash[:notice] %></span> <br>
+            <span class="highlight"><%= flash[:notice] %></span>
+          </div>
+      <% end %>
+      <%=render(:partial => '/shared/user_form', :locals => {:f => f})%>
+
+      <div class="form-group">
+        <%= submit_tag('Login', class: 'topcoat-button--cta') %>
+      </div>
+  <% end %>
+</div>
