@@ -5,14 +5,19 @@ class User < ActiveRecord::Base
 
   EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
 
-  attr_accessible :username, :password
+  attr_accessible :username
   attr_protected :salt, :hash_password
+  attr_accessor :password
 
   before_save  :create_password
   after_save :clear_fields
 
-  validates :username, :password, :presence => true
+  validates :username,:presence => true,
+            :format => { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, on: :create },
+            :uniqueness => true
 
+  validates :password, :presence => true,
+            :length => {:maximum => 25}
 
   def create_password
     if !password.blank?

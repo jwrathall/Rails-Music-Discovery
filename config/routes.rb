@@ -1,5 +1,8 @@
 DevMusicCom::Application.routes.draw do
 
+  get "sessions/new"
+  get "sessions/create"
+  get "sessions/destroy"
   get "user/new"
   get "user/sign_in"
   get "user/forgot_password"

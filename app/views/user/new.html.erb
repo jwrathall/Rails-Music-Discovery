@@ -9,10 +9,11 @@
     <%= form_for(:user, :url => {:action => 'create'},:html => {:class => 'form-inline'}) do |f| %>
         <% if !flash[:notice].blank? %>
             <div class="notice">
+              <span class="highlight"><%= flash[:notice] %></span> <br>
               <span class="highlight"><%= flash[:notice] %></span>
             </div>
         <% end %>
-        <%=render(:partial => 'form', :locals => {:f => f})%>
+        <%=render(:partial => '/shared/user_form', :locals => {:f => f})%>
 
         <div class="form-group">
           <%= submit_tag('Create User', class: 'topcoat-button--cta') %>

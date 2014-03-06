@@ -1,10 +1,8 @@
 <div class="form-error">
   <% if @user.errors.any? %>
-      <ul class="user-error-list">
         <% @user.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
+          <span class="highlight"><%=msg%></span> <br/>
         <% end %>
-      </ul>
   <%end%>
 </div>
 <div class="form-group">
