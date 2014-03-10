@@ -6,14 +6,20 @@
 </div>
 <div class="well well-sm well-release">
 
-  <%= form_for(:user, :url => {:action => 'create'},:html => {:class => 'form-inline'}) do |f| %>
+  <%= form_tag({:method=>'post'},{:class => 'form-inline'}) do%>
       <% if !flash[:notice].blank? %>
           <div class="notice">
-            <span class="highlight"><%= flash[:notice] %></span> <br>
             <span class="highlight"><%= flash[:notice] %></span>
           </div>
       <% end %>
-      <%=render(:partial => '/shared/user_form', :locals => {:f => f})%>
+      <div class="form-group">
+        <%=label_tag('email', nil, class: 'label')%>
+        <%=text_field_tag('email',nil, class:'topcoat-text-input')%>
+      </div>
+      <div class='form-group'>
+        <%=label_tag('password', nil, class: 'label')%>
+        <%= text_field_tag('password', nil, class:'topcoat-text-input')%>
+      </div>
 
       <div class="form-group">
         <%= submit_tag('Login', class: 'topcoat-button--cta') %>

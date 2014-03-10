@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
 
   EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
 
-  attr_accessible :username
-  attr_protected :salt, :hash_password
+  attr_accessible :username,:hash_password
+  attr_protected :salt
   attr_accessor :password
 
   before_save  :create_password
@@ -21,20 +21,32 @@ class User < ActiveRecord::Base
 
   def create_password
     if !password.blank?
-      self.salt = User.make_salt(username)
-      self.hash_password = User.hash_password(password, salt)
+      self.salt = User.create_salt(username)
+      self.hash_password = User.create_hash_password(password, salt)
     end
   end
-  def self.make_salt(username='')
+  def self.create_salt(username='')
      random = SecureRandom.hex()
      "#{random}#{username}#{Time.now}"
   end
-  def self.hash_password(password='', salt='')
+  def self.create_hash_password(password='', salt='')
     Digest::SHA2.hexdigest("#{salt}#{password}")
   end
 
   def clear_fields
     self.password = nil
     self.username = nil
+  end
+
+  def authenticate
+    if hash_password == User.create_hash_password(password, salt)
+      return true
+    else
+      return false
+    end
+  end
+  def self.get_by_username(username)
+    user = User.where('username = ?',username).first()
+    return user
   end
 end
