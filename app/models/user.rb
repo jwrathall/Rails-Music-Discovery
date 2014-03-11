@@ -1,11 +1,10 @@
 class User < ActiveRecord::Base
-
   require 'bcrypt'
   require 'securerandom'
 
   EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
 
-  attr_accessible :username,:hash_password
+  attr_accessible :username , :hash_password
   attr_protected :salt
   attr_accessor :password
 
@@ -38,13 +37,15 @@ class User < ActiveRecord::Base
     self.username = nil
   end
 
-  def authenticate
-    if hash_password == User.create_hash_password(password, salt)
+
+  def authenticate(password)
+    if self.hash_password == User.create_hash_password(password, self.salt)
       return true
     else
       return false
     end
   end
+
   def self.get_by_username(username)
     user = User.where('username = ?',username).first()
     return user

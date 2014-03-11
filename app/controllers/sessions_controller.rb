@@ -4,17 +4,21 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.get_by_username(params[:email])
-    @user.password = params[:password]
-
-    if @user.authenticate
-      session[:user_id] = @user.id
+    user = User.where(
+              'username =?', params[:email]
+              )
+              .first()
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
       redirect_to(:controller => 'catalog')
-     else
-       redirect_to(:action => 'new')
-     end
+    else
+      flash[:notice] = 'credentials not valid'
+      render('new')
+    end
   end
 
   def destroy
+    session[:user_id] = nil
+    redirect_to(root_path)
   end
 end

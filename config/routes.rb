@@ -18,6 +18,7 @@ DevMusicCom::Application.routes.draw do
   post 'register', :to => 'user#create'
   get 'login', :to => 'sessions#new', as: :login
   post 'login', :to => 'sessions#create'
+  get 'logout', :to => 'sessions#destroy', as: :logout
 
   get 'forgot_password', :to => 'user#forgot_password', as: :recover
   get 'change_password', :to => 'user#change_password', as: :edit

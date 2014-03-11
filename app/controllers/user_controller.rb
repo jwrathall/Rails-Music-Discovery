@@ -15,7 +15,7 @@ class UserController < ApplicationController
         flash[:notice] = 'User saved.'
       end
     end
-      render('new')
+    render('new')
   end
 
   def sign_in

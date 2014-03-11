@@ -6,7 +6,7 @@
 </div>
 <div class="well well-sm well-release">
 
-    <%= form_for(:user, :url => {:action => 'create'},:html => {:class => 'form-inline'}) do |f| %>
+    <%= form_for(@user, :url => {:action => 'create'},:html => {:class => 'form-inline'}) do |f| %>
         <% if !flash[:notice].blank? %>
             <div class="notice">
               <span class="highlight"><%= flash[:notice] %></span> <br>
