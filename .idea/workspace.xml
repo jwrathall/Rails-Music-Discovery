@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="542965ff-2b54-4e89-b4c9-2b87acf8ec47" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/app/app.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/app/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/index/search_results.html.erb" afterPath="$PROJECT_DIR$/app/views/index/search_results.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/user_artists_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/user_artists_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -14,9 +15,9 @@
     <file path="/Gemfile" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1392296667607" ignored="false" />
     <file path="/application.js" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1389021458271" ignored="false" />
     <file path="/application.css" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1389871766892" ignored="false" />
-    <file path="/Dummy.txt" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1394533058157" ignored="false" />
+    <file path="/Dummy.txt" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1394569684485" ignored="false" />
     <file path="/index_controller.rb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1392326809034" ignored="false" />
-    <file path="/search_results.html.erb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1392326887035" ignored="false" />
+    <file path="/search_results.html.erb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1394574390647" ignored="false" />
     <file path="/settings.rb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1390771942795" ignored="false" />
     <file path="$PROJECT_DIR$/../dev.scheduler.com/lib/settings.rb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1389457779085" ignored="false" />
     <file path="$PROJECT_DIR$/../dev.scheduler.com/config/environments/development.rb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1389386086674" ignored="false" />
@@ -51,10 +52,10 @@
     <file path="/track.rb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1391722005434" ignored="false" />
     <file path="/database.yml" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1392066566076" ignored="false" />
     <file path="/application.html.erb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1394543575834" ignored="false" />
-    <file path="/app.js" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1394545087725" ignored="false" />
+    <file path="/app.js" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1394574760740" ignored="false" />
     <file path="/20140212125823_create_user_artists.rb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1392210861574" ignored="false" />
     <file path="/20140212131136_add_artist_description.rb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1392211472768" ignored="false" />
-    <file path="/user_artists_controller.rb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1394545336143" ignored="false" />
+    <file path="/user_artists_controller.rb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1394574815785" ignored="false" />
     <file path="/Rails dev.music.com: development" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1392237044045" ignored="false" />
     <file path="/a.regexp" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1392237079480" ignored="false" />
     <file path="/20140212213645_rename_type_column.rb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1392241118228" ignored="false" />
@@ -68,7 +69,7 @@
     <file path="/catalog_controller.rb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1392671183590" ignored="false" />
     <file path="/modal.html" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1392979374085" ignored="false" />
     <file path="/bootstrap.css" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1393941128248" ignored="false" />
-    <file path="/user.rb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1394544860807" ignored="false" />
+    <file path="/user.rb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1394574536202" ignored="false" />
     <file path="/user_controller.rb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1394053701905" ignored="false" />
     <file path="/create.html.erb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1394542536882" ignored="false" />
     <file path="/20140303203523_change_user_column_name.rb" changelist="542965ff-2b54-4e89-b4c9-2b87acf8ec47" time="1393879025604" ignored="false" />
@@ -107,8 +108,11 @@
       <file leaf-file-name="search_results.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/index/search_results.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="42" selection-start="592" selection-end="592" vertical-scroll-proportion="-10.0">
-              <folding />
+            <state line="17" column="112" selection-start="617" selection-end="617" vertical-scroll-proportion="-10.625">
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -116,10 +120,10 @@
       <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/app/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="55" selection-start="1767" selection-end="1767" vertical-scroll-proportion="0.48701298">
+            <state line="33" column="46" selection-start="1330" selection-end="1330" vertical-scroll-proportion="0.4017857">
               <folding>
-                <marker date="1394545478000" expanded="false" signature="4374:4409" placeholder="..." />
-                <marker date="1394545478000" expanded="false" signature="5110:5145" placeholder="..." />
+                <marker date="1394574773000" expanded="false" signature="4436:4471" placeholder="..." />
+                <marker date="1394574773000" expanded="false" signature="5172:5207" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -137,7 +141,25 @@
       <file leaf-file-name="user_artists_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/user_artists_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="249" selection-start="842" selection-end="842" vertical-scroll-proportion="0.0">
+            <state line="25" column="108" selection-start="688" selection-end="688" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sessions_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="11" selection-start="486" selection-end="486" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user_artist.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/user_artist.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="127" selection-start="278" selection-end="278" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -146,7 +168,7 @@
       <file leaf-file-name="user.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/user.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="237" selection-start="1304" selection-end="1304" vertical-scroll-proportion="0.0">
+            <state line="51" column="106" selection-start="1299" selection-end="1299" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -170,7 +192,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/db/migrate/20140306124958_user_remove_password.rb" />
         <option value="$PROJECT_DIR$/app/views/user/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/user.css.scss" />
         <option value="$PROJECT_DIR$/app/views/user/sign_in.html.erb" />
@@ -182,10 +203,11 @@
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/sessions/new.html.erb" />
-        <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/user_artists_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/index/search_results.html.erb" />
+        <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/app/app.js" />
+        <option value="$PROJECT_DIR$/app/controllers/user_artists_controller.rb" />
       </list>
     </option>
   </component>
@@ -453,6 +475,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="layouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dev.music.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dev.music.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="index" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -641,21 +685,21 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="RailsProjectView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../dev.scheduler.com" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -957,12 +1001,12 @@
       <method />
     </configuration>
     <list size="6">
-      <item index="0" class="java.lang.String" itemvalue="Ruby.releases_controller" />
-      <item index="1" class="java.lang.String" itemvalue="Ruby.user" />
-      <item index="2" class="java.lang.String" itemvalue="Rake.test" />
-      <item index="3" class="java.lang.String" itemvalue="Rake.spec" />
-      <item index="4" class="java.lang.String" itemvalue="Rails.Production: dev.music.com" />
-      <item index="5" class="java.lang.String" itemvalue="Rails.Development: dev.music.com" />
+      <item index="0" class="java.lang.String" itemvalue="Rake.test" />
+      <item index="1" class="java.lang.String" itemvalue="Rake.spec" />
+      <item index="2" class="java.lang.String" itemvalue="Rails.Production: dev.music.com" />
+      <item index="3" class="java.lang.String" itemvalue="Rails.Development: dev.music.com" />
+      <item index="4" class="java.lang.String" itemvalue="Ruby.releases_controller" />
+      <item index="5" class="java.lang.String" itemvalue="Ruby.user" />
     </list>
     <recent_temporary>
       <list size="2">
@@ -1099,7 +1143,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32884312" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975337" sideWeight="0.6706349" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15075576" sideWeight="0.60079366" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15194908" sideWeight="0.60079366" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39920634" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936507" sideWeight="0.5002096" order="7" side_tool="true" content_ui="tabs" />
@@ -1196,38 +1240,64 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/shared/_user_form.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="26" selection-start="393" selection-end="393" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/user_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="17" selection-start="392" selection-end="392" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="17" column="17" selection-start="392" selection-end="392" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/sessions/create.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="239" selection-start="49" selection-end="49" vertical-scroll-proportion="-2.5">
-          <folding />
-        </state>
+        <state line="4" column="239" selection-start="49" selection-end="49" vertical-scroll-proportion="-2.5" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/releases/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="0" selection-start="1057" selection-end="1057" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/releases/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="107" selection-start="2296" selection-end="2380" vertical-scroll-proportion="0.76986754" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/sessions/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="110" selection-start="916" selection-end="916" vertical-scroll-proportion="0.38493377" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/user/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="248" selection-end="807" vertical-scroll-proportion="0.09933775" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20140212125823_create_user_artists.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user_artist.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="127" selection-start="278" selection-end="278" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/index/search_results.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="112" selection-start="617" selection-end="617" vertical-scroll-proportion="-10.625">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1240,49 +1310,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="25" selection-start="474" selection-end="474" vertical-scroll-proportion="0.2556818">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/releases/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="107" selection-start="2296" selection-end="2380" vertical-scroll-proportion="0.76986754">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/sessions/new.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="110" selection-start="916" selection-end="916" vertical-scroll-proportion="0.38493377">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/user/new.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="248" selection-end="807" vertical-scroll-proportion="0.09933775">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/index/search_results.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="42" selection-start="592" selection-end="592" vertical-scroll-proportion="-10.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user_artist.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="127" selection-start="278" selection-end="278" vertical-scroll-proportion="0.060876623">
+        <state line="24" column="11" selection-start="486" selection-end="486" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="237" selection-start="1304" selection-end="1304" vertical-scroll-proportion="0.0">
+        <state line="51" column="106" selection-start="1299" selection-end="1299" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/user_artists_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="108" selection-start="688" selection-end="688" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1294,19 +1336,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/user_artists_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="249" selection-start="842" selection-end="842" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/app/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="55" selection-start="1767" selection-end="1767" vertical-scroll-proportion="0.48701298">
+        <state line="33" column="46" selection-start="1330" selection-end="1330" vertical-scroll-proportion="0.4017857">
           <folding>
-            <marker date="1394545478000" expanded="false" signature="4374:4409" placeholder="..." />
-            <marker date="1394545478000" expanded="false" signature="5110:5145" placeholder="..." />
+            <marker date="1394574773000" expanded="false" signature="4436:4471" placeholder="..." />
+            <marker date="1394574773000" expanded="false" signature="5172:5207" placeholder="..." />
           </folding>
         </state>
       </provider>

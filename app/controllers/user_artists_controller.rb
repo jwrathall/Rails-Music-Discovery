@@ -12,22 +12,29 @@ class UserArtistsController < ApplicationController
     render json: artists
   end
   def save
-    message = ''
-    status = 0
+    success = false
     data = params
     artist = UserArtist.new(data)
-    artist.user_id = session[:user_id]
-    #TODO need some error checking too
+    if session[:user_id] == nil
+      message = 'You must login to save artists'
+      error = 'User not logged in'
+    else
+      artist.user_id = session[:user_id]
       if artist.save
         data['genre_attribute'].each do |t|
           artist.genres.create(:tag => t)
         end
-        message = 'saved'
+        message = 'Successfully saved to your catalog'
+        success = true
+        error= 'none'
       else
-        message = current_user
-      end
+        message = 'Artists already exists in your catalog'
+        error = 'Artist already exists'
 
-    render json:  message
+      end
+    end
+    response = {:success => success, :message => message, :error => error}
+    render json:  response.to_json
   end
   def destroy
     artist_id = params['_json']

@@ -4,9 +4,9 @@ class User < ActiveRecord::Base
 
   EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
 
-  attr_accessible :username , :hash_password
+  attr_accessible :username , :hash_password,:id
   attr_protected :salt
-  attr_accessor :password,:id
+  attr_accessor :password
 
   before_save  :create_password
   after_save :clear_fields

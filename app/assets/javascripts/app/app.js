@@ -16,8 +16,9 @@ musicApp.controller('searchResultsController',
             var artist = data;
             $http({method: 'POST', url: '/user/save_artist', data: angular.toJson(data), headers: {'Content-Type':'application/json'}}).
                 success(function(data, status, headers, config) {
-                    console.log(data);
-                    if(data === 'saved'){
+                    console.log(data.success) ;
+
+                    if(data.success === true){
                         var modalContent = {
                             title: 'Artist Saved',
                             artist: artist.name,
@@ -26,15 +27,19 @@ musicApp.controller('searchResultsController',
                         }
                     }else{
                         var modalContent = {
-                            title: 'Artist Exists',
-                            artist: artist.name,
-                            message: 'already exists in your catalog',
+                            title: data.error,
+                            artist:'',
+                            message: data.message,
                             icon: 'cancel'
                         }
                     }
+
                     dialogFactory.notify(modalContent);
                 }).
                 error(function(data, status, headers, config) {
+                    console.log(data);
+                    console.log(status);
+
                     var modalContent = {
                         title: 'Error Adding Artist', artist: '', message: 'There has been an error adding that artist.', icon: 'error'
                     }
