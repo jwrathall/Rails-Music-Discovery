@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :username , :hash_password
   attr_protected :salt
-  attr_accessor :password
+  attr_accessor :password,:id
 
   before_save  :create_password
   after_save :clear_fields

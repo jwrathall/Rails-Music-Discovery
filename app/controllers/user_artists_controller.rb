@@ -16,6 +16,7 @@ class UserArtistsController < ApplicationController
     status = 0
     data = params
     artist = UserArtist.new(data)
+    artist.user_id = session[:user_id]
     #TODO need some error checking too
       if artist.save
         data['genre_attribute'].each do |t|
@@ -23,7 +24,7 @@ class UserArtistsController < ApplicationController
         end
         message = 'saved'
       else
-        message = 'exists'
+        message = current_user
       end
 
     render json:  message
