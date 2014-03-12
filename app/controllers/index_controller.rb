@@ -3,22 +3,22 @@ class IndexController < ApplicationController
   require 'nokogiri'
   require 'open-uri'
   require 'artist'
+  require 'music_brainz'
+
   #require statement for settings is in the config/environment.rb
 
   def index
        @doc = ''
+    #might need something like this
+    #http://www.musicbrainz.org/ws/2/release/?query=date:2014-03-04+TO+2014-03-11%20and%20country:US%20and%20type:album|ep|
+    #http://www.musicbrainz.org/ws/2/release-group/?query=date:2014-03-11+TO+2014-03-04%20and%20country:xw%20and%20type:album
+    #help with searching: http://forums.musicbrainz.org/viewtopic.php?pid=22929#p22929
   end
 
   def get
     band_name = params['band']
 
-    conn = Faraday.new(:url => Settings.musicbrainz_url) do |faraday|
-       faraday.request  :url_encoded             # form-encode POST params
-       faraday.response :logger                  # log requests to STDOUT
-       faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
-     end
-
-    response = conn.get ''+ Settings.musicbrainz_artist_query_url + '"' + band_name +'"'
+    response = MusicBrainz.search_artists_by_name(band_name)
 
     xml = Nokogiri::XML(response.body)
     xml.remove_namespaces!
@@ -32,7 +32,6 @@ class IndexController < ApplicationController
       myartist.relevance = artist.attribute('score').to_s
       myartist.artist_type = artist.attribute('type').to_s
       myartist.name = artist.child().text()
-      id =
       myartist.mbid = artist.attribute('id').to_s
 
       myartist.country_id = artist.xpath('area/@id').to_s
