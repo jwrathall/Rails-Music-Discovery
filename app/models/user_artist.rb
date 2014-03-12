@@ -6,9 +6,8 @@ class UserArtist < ActiveRecord::Base
    before_save :if_exists
 
    def if_exists
-     #TODO: add in user id as part of query
       artist_count =  UserArtist
-                      .where('mbid = ?', mbid)
+                      .where('mbid = ? AND user_id = ?', mbid, user_id)
                       .select('mbid')
                       .count
      if artist_count != 0

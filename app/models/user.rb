@@ -39,11 +39,14 @@ class User < ActiveRecord::Base
 
 
   def authenticate(password)
-    if self.hash_password == User.create_hash_password(password, self.salt)
+    self.hash_password == User.create_hash_password(password, self.salt)
+=begin
+    if
       return true
     else
       return false
     end
+=end
   end
 
   def self.get_by_username(username)

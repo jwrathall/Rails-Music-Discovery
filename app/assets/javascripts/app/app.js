@@ -15,8 +15,7 @@ musicApp.controller('searchResultsController',
         $scope.saveArtist = function(data){
             var artist = data;
             $http({method: 'POST', url: '/user/save_artist', data: angular.toJson(data), headers: {'Content-Type':'application/json'}}).
-                success(function(data, status, headers, config) {
-                    console.log(data.success) ;
+                success(function(data, status, headers, config) {;
 
                     if(data.success === true){
                         var modalContent = {
@@ -37,9 +36,6 @@ musicApp.controller('searchResultsController',
                     dialogFactory.notify(modalContent);
                 }).
                 error(function(data, status, headers, config) {
-                    console.log(data);
-                    console.log(status);
-
                     var modalContent = {
                         title: 'Error Adding Artist', artist: '', message: 'There has been an error adding that artist.', icon: 'error'
                     }
@@ -53,9 +49,13 @@ musicApp.controller('catalogController',
 
         $http({method: 'GET', url: '/user/all_artists'}).
             success(function(data, status, headers, config) {
-                $scope.artists = data;
+                console.log(data.catalog);
+                if(data.success === true){
+                    $scope.catalog = data.catalog;
+                }
             }).
             error(function(data, status, headers, config) {
+                console.log(data);
                 // called asynchronously if an error occurs
                 // or server returns response with an error status.
             });
@@ -63,10 +63,11 @@ musicApp.controller('catalogController',
         //TODO move all this into a factory and implement ngResource
         $scope.removeArtist = function(data){
             var artist = data;
-            var index =$scope.artists.user_artists.indexOf(data);
+            var index =$scope.catalog.artists.indexOf(data);
             $http({method: 'DELETE', url: '/user/destroy_artist', data:angular.toJson(data.id), headers: {'Content-Type':'application/json'}}).
                 success(function(data, status, headers, config) {
-                    $scope.artists.user_artists.splice(index,1);
+                    $scope.catalog.artists.splice(index,1);
+                    $scope.catalog.count -= 1;
                     var modalContent = {
                         title: 'Artist Removed', artist: artist.name, message: 'has been removed from your catalog.', icon: 'cancel'
                     }

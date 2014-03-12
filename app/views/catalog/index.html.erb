@@ -1,10 +1,10 @@
 <div class="container" ng-controller="catalogController">
   <div class="jumbotron jumbotron-releases">
-    <p>You have {{artists.count}} in your catalog</p>
+    <p>You have {{catalog.count}} in your catalog</p>
   </div>
   <div class="row">
     <div class="col-lg-12 col-xs-12">
-      <div class='well well-lg' ng-repeat="artist in artists.user_artists">
+      <div class='well well-lg' ng-repeat="artist in catalog.artists">
         <div class="row">
           <div class="col-md-1 col-sm-1">
             <remove-artist model="artist" event="removeArtist"></remove-artist>
