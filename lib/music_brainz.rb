@@ -1,6 +1,9 @@
 class MusicBrainz
-  require 'settings'
   require 'faraday'
+  require 'artist'
+  require 'nokogiri'
+  require 'open-uri'
+  #require statement for settings is in the config/environment.rb
 
   def self.fetch(search_string)
     conn = Faraday.new(:url => Settings.musicbrainz_url) do |faraday|
@@ -11,7 +14,44 @@ class MusicBrainz
     conn.get search_string
   end
   def self.search_artists_by_name(name)
-    MusicBrainz.fetch(''+ Settings.musicbrainz_artist_query_url + '"' + name +'"')
+    response = MusicBrainz.fetch(''+ Settings.musicbrainz_artist_query_url + '"' + name +'"')
+
+    #TODO rewrite this using JSON
+    xml = Nokogiri::XML(response.body)
+    xml.remove_namespaces!
+    artists = Array.new
+    xml.xpath('//metadata//artist-list//artist').each do |artist|
+      myartist = Artist.new()
+      myartist.relevance = artist.attribute('score').to_s
+      myartist.artist_type = artist.attribute('type').to_s
+      myartist.name = artist.child().text()
+      myartist.mbid = artist.attribute('id').to_s
+
+      myartist.country_id = artist.xpath('area/@id').to_s
+      if artist.xpath('area/name') != ''
+        myartist.country_name = artist.xpath('area/name').text()
+      else
+        myartist.country_name = ''
+      end
+      myartist.area_id = artist.xpath('begin-area/@id').to_s
+      myartist.area_name =artist.xpath('begin-area/name').text()
+
+      if artist.xpath('tag-list/tag').nil?
+        myartist.genre_attribute  =''
+      else
+        tags = Array.new
+        artist.xpath('tag-list/tag').each do |tag|
+          tags.push(tag.xpath('name').text())
+        end
+        myartist.genre_attribute = tags
+      end
+
+
+
+      myartist.description = artist.xpath('disambiguation').text()
+      artists.push(myartist)
+    end
+    artists
   end
   def get_all_release_groups(artist_id, type)
     #call fetch method

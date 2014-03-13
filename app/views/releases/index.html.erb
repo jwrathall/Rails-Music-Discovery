@@ -1,61 +1,66 @@
 <div class="container">
-  <div class="jumbotron jumbotron-releases">
-
-    <h1><%=@band_name%></h1>
-
-    <p class="highlight"><%=@placeformed%></p>
-    <%unless @members.empty?%>
-        <div class="row">
-          <div class="col-md-12">
-            <ul class="members">
-              <%@members.each_with_index do |member, i|%>
-                  <li><%=member['name'].to_s%><%=', ' unless i == @members.length-1%></li>
+  <div class="jumbotron jumbotron-releases" ng-controller="releasesController">
+    <div class="row">
+      <div class="col-md-1 col-sm-1">
+        <div class="icomatic" style="font-size:30px;padding-top:30px;"><span>save</span></div>
+      </div>
+      <div class="col-md-11 col-sm-11 col-xs-12">
+        <h1><%=@band_name%></h1>
+        <p class="highlight"><%=@placeformed%></p>
+        <%unless @members.empty?%>
+            <div class="row">
+              <div class="col-md-12">
+                <ul class="members">
+                  <%@members.each_with_index do |member, i|%>
+                      <li><%=member['name'].to_s%><%=', ' unless i == @members.length-1%></li>
+                  <%end%>
+                </ul>
+              </div>
+            </div>
+        <%end%>
+        <p class="detail-sm">
+          <%@formation.each_with_index do |date, i| %>
+              <%if @is_array%>
+                  <%if date['yearto'] == ''%>
+                      <%yearto = 'present'%>
+                  <%else%>
+                      <%yearto = date['yearto']%>
+                  <%end%>
+                  <%=date['yearfrom']%> - <%=yearto%> <%=', ' unless i == @formation.length-1%>
+              <%else%>
+                  <%if date[1]['yearto'] == ''%>
+                      <%yearto = 'present'%>
+                  <%else%>
+                      <%yearto = date[1]['yearto']%>
+                  <%end%>
+                  <%=date[1]['yearfrom']%> - <%=yearto%>
               <%end%>
-            </ul>
-          </div>
+          <%end%>
+        </p>
+
+      <div class="row">
+        <div class="col-md-6 tags highlight">
+          <%@json_tags.each_with_index do |tag, i|%>
+              <%=tag['name']%><%=',  ' unless i == @json_tags.length-1%>
+          <%end%>
         </div>
-    <%end%>
-    <p class="detail-sm">
-    <%@formation.each_with_index do |date, i| %>
-        <%if @is_array%>
-            <%if date['yearto'] == ''%>
-                <%yearto = 'present'%>
-            <%else%>
-                <%yearto = date['yearto']%>
-            <%end%>
-            <%=date['yearfrom']%> - <%=yearto%> <%=', ' unless i == @formation.length-1%>
-        <%else%>
-            <%if date[1]['yearto'] == ''%>
-                <%yearto = 'present'%>
-            <%else%>
-                <%yearto = date[1]['yearto']%>
-            <%end%>
-           <%=date[1]['yearfrom']%> - <%=yearto%>
-        <%end%>
-    <%end%>
-    </p>
-    <div class="row">
-      <div class="col-md-6 tags highlight">
-        <%@json_tags.each_with_index do |tag, i|%>
-            <%=tag['name']%><%=',  ' unless i == @json_tags.length-1%>
-        <%end%>
       </div>
-    </div>
-    <p class="summary-small"><%=@summary%></p>
+      <p class="summary-small"><%=@summary%></p>
+      <div class="row">
+        <div class="col-md-2">
+          <%=link_to 'similar', similar_path(:id => @arid)%>
+        </div>
+        <div class="col-md-2">
+          <%if @on_tour == '1'%>
+              <%= link_to 'tour dates', tour_path(:id => @arid) %>
+          <%end%>
+        </div>
+        <div class="col-md-4">
 
-    <div class="row">
-      <div class="col-md-2">
-        <%=link_to 'similar', similar_path(:id => @arid)%>
-      </div>
-      <div class="col-md-2">
-        <%if @on_tour == '1'%>
-         <%= link_to 'tour dates', tour_path(:id => @arid) %>
-        <%end%>
-      </div>
-      <div class="col-md-4">
-
-      </div>
+        </div>
     </div>
+  </div>
+  </div>
   </div>
 
   <div class="row">

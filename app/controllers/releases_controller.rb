@@ -5,7 +5,7 @@ class ReleasesController < ApplicationController
   require 'open-uri'
 
   def index
-
+     #http://musicbrainz.org/ws/2/artist/?query=arid:7527f6c2-d762-4b88-b5e2-9244f1e34c46&fmt=json
 
     @month = Time.now.strftime('%m')
     @year =  Time.now.strftime('%Y')
@@ -45,9 +45,6 @@ class ReleasesController < ApplicationController
 
     @json_tags = myvar['artist']['tags']['tag']
 
-
-
-
     @summary =  myvar['artist']['bio']['summary'].html_safe
     if myvar['artist']['bandmembers'] != nil
       @members = myvar['artist']['bandmembers']['member']
@@ -55,6 +52,8 @@ class ReleasesController < ApplicationController
       @members = ''
     end
 
+
+    #replace below with this: http://musicbrainz.org/ws/2/release-group/?query=arid:7527f6c2-d762-4b88-b5e2-9244f1e34c46&fmt=json
 
 
     conn = Faraday.new(:url => Settings.musicbrainz_url) do |faraday|

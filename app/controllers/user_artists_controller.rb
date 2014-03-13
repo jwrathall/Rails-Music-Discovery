@@ -33,6 +33,11 @@ class UserArtistsController < ApplicationController
     render json: response
   end
   def save
+    #TODO - change this to accomodate for sending only mbid
+    #mbid or full object enter
+    #check if artist extist in the DB
+    #if not then call musicbrainz
+
     success = false
     data = params
     artist = UserArtist.new(data)

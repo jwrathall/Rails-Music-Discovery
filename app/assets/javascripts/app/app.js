@@ -83,6 +83,14 @@ musicApp.controller('catalogController',
     }
 );
 
+musicApp.controller('releasesController',
+    function($scope, $http, $resource){
+        $scope.saveArtist = function(data){
+
+        }
+    }
+);
+
 musicApp.controller('modalController',
     function($scope, $modalInstance, returnData){
         $scope.data = returnData;
