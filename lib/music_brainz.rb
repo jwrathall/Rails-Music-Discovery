@@ -14,8 +14,9 @@ class MusicBrainz
     conn.get search_string
   end
   def self.search_artists_by_name(name)
-    response = MusicBrainz.fetch(''+ Settings.musicbrainz_artist_query_url + '"' + name +'"')
-
+   response =  MusicBrainz.fetch(''+ Settings.musicbrainz_artist_query_url + '"' + name +'"&fmt=json')
+   ActiveSupport::JSON.decode(response.body)
+=begin
     #TODO rewrite this using JSON
     xml = Nokogiri::XML(response.body)
     xml.remove_namespaces!
@@ -52,6 +53,28 @@ class MusicBrainz
       artists.push(myartist)
     end
     artists
+=end
+  end
+  def get_artist_by_mbid(id)
+    response =  MusicBrainz.fetch(''+ Settings.musicbrainz_artist_by_mbid + '"' + id +'"&fmt=json')
+    json = ActiveSupport::JSON.decode(response.body)
+    artist = Artist.new(
+                        :mbid => json['id'],
+                        :name => json['name'],
+                        :artist_type => json['type'],
+                        :country_name => json['area'].nil? ? '' : json['area']['name'],
+                        :country_id => json['area'].nil? ? nil : json['area']['id'],
+                        :area_name => json['begin-area'].nil? ? '' : json['begin-area']['name'],
+                        :area_id => json['begin-area'].nil? ? '' : json['begin-area']['id']
+                        )
+    unless json['tags'].nil?
+      tags_list = json['tags'].to_a
+      tags_list.each do |tag|
+        artist.genre_attribute = tag['name']
+      end
+
+    end
+    artist
   end
   def get_all_release_groups(artist_id, type)
     #call fetch method
@@ -60,5 +83,4 @@ class MusicBrainz
   def get_release_group(group_id)
     #call fetch
   end
-
 end

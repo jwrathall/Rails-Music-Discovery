@@ -1,5 +1,6 @@
 musicbrainz_url: 'http://musicbrainz.org'
 musicbrainz_artist_query: '/ws/2/artist/?query=artist:'
+musicbrainz_artist_by_mbid: '/ws/2/artist/?query=arid:'
 musicbrainz_release_query: '/ws/2/release-group?artist='
 last_fm_api_key: 'c49fe5da5c5a3f102f1ac7590b8e31ed'
 last_fm_url: 'http://ws.audioscrobbler.com/2.0/'
@@ -8,6 +9,7 @@ last_fm_artist_info: '?method=artist.getinfo&mbid='
 last_fm_similar_artists: '?method=artist.getsimilar&mbid='
 last_fm_get_events: '?method=artist.getevents&'
 last_fm_release_info: '?method=album.getinfo&'
+
 
 
 

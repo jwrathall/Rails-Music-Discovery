@@ -11,8 +11,7 @@ class IndexController < ApplicationController
   end
 
   def get
-    artists = MusicBrainz.search_artists_by_name(params['band'])
-    @output = artists
+    @artists = MusicBrainz.search_artists_by_name(params['band'])
     render :search_results
   end
 end

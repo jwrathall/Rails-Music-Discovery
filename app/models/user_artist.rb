@@ -16,4 +16,7 @@ class UserArtist < ActiveRecord::Base
        return true
      end
    end
+  def self.get_by_mbid(id)
+    UserArtist.where('mbid = ?', id).first()
+  end
 end

@@ -1,5 +1,6 @@
 class UserArtistsController < ApplicationController
   require 'json'
+  require 'music_brainz'
   respond_to :json
 
   def index
@@ -33,37 +34,28 @@ class UserArtistsController < ApplicationController
     render json: response
   end
   def save
-    #TODO - change this to accomodate for sending only mbid
-    #mbid or full object enter
-    #check if artist extist in the DB
-    #if not then call musicbrainz
 
-    success = false
-    data = params
-    artist = UserArtist.new(data)
-    if session[:user_id] == nil
+    if session[:user_id] != nil
+      #possibly save another query to musicbrainz
+      original_artist = UserArtist.get_by_mbid(params)
+      if original_artist
+        clone_artist = original_artist.dup
+        clone_artist.user_id = session[:user_id]
+        original_artist.genres.each do |genre|
+          clone_artist.genre_attribute << genre
+        end
+      else
+        artist = MusicBrainz.get_artist_by_mbid(params)
+        if artist.save
+        else
+
+        end
+      end
+    else
       message = 'You must login to save artists'
       error = 'User not logged in'
-    else
-      artist.user_id = session[:user_id]
-      if artist.save
-        data['genre_attribute'].each do |t|
-          artist.genres.create(:tag => t)
-        end
-        message = 'Successfully saved to your catalog'
-        success = true
-        error= 'none'
-      else
-        message = 'Artists already exists in your catalog'
-        error = 'Artist already exists'
-
-      end
     end
-    response = {:success => success,
-                :message => message,
-                :error => error
-              }
-    render json:  response.to_json
+
   end
   def destroy
     artist_id = params['_json']
@@ -71,3 +63,32 @@ class UserArtistsController < ApplicationController
     render json:  artist_id
   end
 end
+
+
+=begin
+success = false
+data = params
+artist = UserArtist.new(data)
+if session[:user_id] == nil
+
+else
+  artist.user_id = session[:user_id]
+  if artist.save
+    data['genre_attribute'].each do |t|
+      artist.genres.create(:tag => t)
+    end
+    message = 'Successfully saved to your catalog'
+    success = true
+    error= 'none'
+  else
+    message = 'Artists already exists in your catalog'
+    error = 'Artist already exists'
+
+  end
+end
+response = {:success => success,
+            :message => message,
+            :error => error
+}
+render json:  response.to_json
+end=end
