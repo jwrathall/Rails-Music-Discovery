@@ -1,6 +1,5 @@
 class MusicBrainz
   require 'faraday'
-  require 'artist'
   require 'nokogiri'
   require 'open-uri'
   #require statement for settings is in the config/environment.rb
@@ -55,10 +54,11 @@ class MusicBrainz
     artists
 =end
   end
-  def get_artist_by_mbid(id)
+  def self.get_artist_by_mbid(id)
     response =  MusicBrainz.fetch(''+ Settings.musicbrainz_artist_by_mbid + '"' + id +'"&fmt=json')
     json = ActiveSupport::JSON.decode(response.body)
-    artist = Artist.new(
+
+    artist = UserArtist.new(
                         :mbid => json['id'],
                         :name => json['name'],
                         :artist_type => json['type'],
@@ -74,7 +74,8 @@ class MusicBrainz
       end
 
     end
-    artist
+
+    json
   end
   def get_all_release_groups(artist_id, type)
     #call fetch method

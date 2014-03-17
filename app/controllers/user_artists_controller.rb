@@ -33,62 +33,44 @@ class UserArtistsController < ApplicationController
               }
     render json: response
   end
-  def save
 
-    if session[:user_id] != nil
-      #possibly save another query to musicbrainz
-      original_artist = UserArtist.get_by_mbid(params)
-      if original_artist
-        clone_artist = original_artist.dup
-        clone_artist.user_id = session[:user_id]
-        original_artist.genres.each do |genre|
-          clone_artist.genre_attribute << genre
+  def save
+    success = false
+    message = ''
+    error = ''
+
+    if session[:user_id] == nil
+      original_artist = UserArtist.get_by_mbid(params[:mbid])
+      if !original_artist.nil?
+        artist = original_artist.dup
+        artist.user_id = session[:user_id]
+        if artist.save
+          original_artist.genres.each do |genre|
+            artist.genres.create(:tag => genre.tag)
+          end
+          message = 'Saved artists'
+          error = 'none'
+        else
+          message = 'Artist not saved'
+          error = 'not saved'
         end
       else
-        artist = MusicBrainz.get_artist_by_mbid(params)
-        if artist.save
-        else
-
-        end
+        artist = MusicBrainz.get_artist_by_mbid(params[:mbid])
+        message = artist
       end
     else
-      message = 'You must login to save artists'
-      error = 'User not logged in'
-    end
 
+    end
+    response = {:success => success,
+                :message => message,
+                :error => error
+    }
+    render json:  response
   end
+
   def destroy
     artist_id = params['_json']
     UserArtist.destroy(artist_id)
     render json:  artist_id
   end
 end
-
-
-=begin
-success = false
-data = params
-artist = UserArtist.new(data)
-if session[:user_id] == nil
-
-else
-  artist.user_id = session[:user_id]
-  if artist.save
-    data['genre_attribute'].each do |t|
-      artist.genres.create(:tag => t)
-    end
-    message = 'Successfully saved to your catalog'
-    success = true
-    error= 'none'
-  else
-    message = 'Artists already exists in your catalog'
-    error = 'Artist already exists'
-
-  end
-end
-response = {:success => success,
-            :message => message,
-            :error => error
-}
-render json:  response.to_json
-end=end

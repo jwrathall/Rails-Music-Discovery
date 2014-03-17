@@ -13,11 +13,12 @@ musicApp.config([
 musicApp.controller('searchResultsController',
     function($scope, $http, dialogFactory){
         $scope.saveArtist = function(data){
+            console.log(angular.toJson(data));
             var artist = data;
-            $http({method: 'POST', url: '/user/save_artist', data: angular.toJson(data), headers: {'Content-Type':'application/json'}}).
-                success(function(data, status, headers, config) {;
-
-                    if(data.success === true){
+            $http({method: 'POST', url: '/user/save_artist', data: {'mbid':data}, headers: {'Content-Type':'application/json'}}).
+                success(function(data, status, headers, config) {
+                    console.log(data );
+                    /*if(data.success === true){
                         var modalContent = {
                             title: 'Artist Saved',
                             artist: artist.name,
@@ -33,9 +34,10 @@ musicApp.controller('searchResultsController',
                         }
                     }
 
-                    dialogFactory.notify(modalContent);
+                    dialogFactory.notify(modalContent);*/
                 }).
                 error(function(data, status, headers, config) {
+                    console.log(data, status);
                     var modalContent = {
                         title: 'Error Adding Artist', artist: '', message: 'There has been an error adding that artist.', icon: 'error'
                     }
