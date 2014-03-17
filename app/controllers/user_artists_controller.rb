@@ -56,13 +56,13 @@ class UserArtistsController < ApplicationController
         end
       else
         artist = MusicBrainz.get_artist_by_mbid(params[:mbid])
-        message = artist
+        artist.save
       end
     else
 
     end
     response = {:success => success,
-                :message => message,
+                :message => artist,
                 :error => error
     }
     render json:  response
