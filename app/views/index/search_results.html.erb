@@ -7,44 +7,41 @@
   </div>
   <div class="row" ng-controller="searchResultsController">
     <div class="col-lg-12 col-xs-12">
-    <% @output.each_with_index do |page, index| %>
-        <div class='well well-lg'>
-          <div class="row">
-            <div class="col-md-1 col-sm-1">
-              <save-artist event="saveArtist(<%=page.to_json%>)"></save-artist>
-            </div>
-            <div class="col-md-9 col-sm-9 col-xs-12">
-              <div>
-                  <p class="highlight"><%= page.artist_type%></p>
-                  <%= link_to releases_path({:id => page.mbid}) do%>
+      <%@artists['artist'].each do |artist|%>
+          <div class='well well-lg'>
+            <div class="row">
+              <div class="col-md-1 col-sm-1">
+                <save-artist event="saveArtist('<%=artist['id'].to_s%>')"></save-artist>
+              </div>
+              <div class="col-md-9 col-sm-9 col-xs-12">
+                <div>
+                  <p class="highlight"><%=artist['type']%></p>
+                  <%= link_to releases_path({:id => artist['id']}) do%>
                       <div style="width:auto; float:left;">
-                        <p class="name-lg"><%= page.name%></p>
+                        <p class="name-lg"><%= artist['name']%></p>
                       </div>
                       <div class='icomatic' style="float:left; display:inline;font-size:20px; margin:10px 0 0 10px;"><span>search</span></div>
                   <%end%>
+                </div>
+                <div>
+                  <%unless artist['area'].nil?%>
+                      <p class="highlight"><%= artist['area']['name']%></p>
+                  <%end%>
+                  <%unless artist['tags'].nil? %>
+                      <%@genres = artist['tags'].to_a%>
+                      <%@genres.each_with_index do |tag,i|%>
+                      <%=tag['name']%><%=', ' unless i == @genres.length-1%>
+                      <%end%>
+                  <%end%>
+                </div>
               </div>
-              <div>
-                <%unless page.area_name.empty? && page.country_name.empty?%>
-                    <p class="highlight"><%= page.area_name%> <%= page.country_name%></p>
-                <%end%>
-                <%unless page.description.empty?%>
-                    <p> <%= page.description%></p>
-                <%end%>
-                <%unless page.genre_attribute == '' %>
-                    <%@genres = page.genre_attribute[0,5]%>
-                    <%@genres.each_with_index do |g, i|%>
-                        <%=g%> <%=', ' unless i == @genres.length-1%>
-                    <%end%>
-                <%end%>
-              </div>
-            </div>
-            <div class="col-md-2 col-sm-3 col-xs-12">
+              <div class="col-md-2 col-sm-3 col-xs-12">
                 <div>score</div>
-                <span class="topcoat-notification"><%=page.relevance%></span>
+                <span class="topcoat-notification"><%=artist['score']%></span>
+              </div>
             </div>
           </div>
-        </div>
-    <% end %>
+      <%end%>
     </div>
   </div>
  </div>

@@ -15,7 +15,7 @@ class ToursController < ApplicationController
     json = ActiveSupport::JSON.decode(response.body)
 
     events = json['events']['event']
-    @band_name = json['events']['@attr']['artist']
+    @artist_name = json['events']['@attr']['artist']
     artist_events = Array.new()
     if events.is_a?(Array)
       events.each do |evt|

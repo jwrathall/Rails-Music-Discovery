@@ -11,9 +11,13 @@ class UserArtist < ActiveRecord::Base
                       .select('mbid')
                       .count
      if artist_count != 0
+       errors.add(:message, 'Artist already exists')
        return false
      else
        return true
      end
    end
+  def self.get_by_mbid(id)
+    UserArtist.includes(:genres).where('mbid = ?',id).first()
+  end
 end

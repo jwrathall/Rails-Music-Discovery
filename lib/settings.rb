@@ -9,6 +9,10 @@ class Settings
     get_string_setting('musicbrainz_artist_query')
   end
 
+  def Settings.musicbrainz_artist_by_mbid
+    get_string_setting('musicbrainz_artist_by_mbid')
+  end
+
   def Settings.musicbrainz_release_query
     get_string_setting('musicbrainz_release_query')
   end
@@ -17,9 +21,6 @@ class Settings
     get_string_setting('last_fm_api_key')
   end
 
-  def Settings.last_fm_url
-    get_string_setting('last_fm_url')
-  end
   def Settings.last_fm_url
     get_string_setting('last_fm_url')
   end

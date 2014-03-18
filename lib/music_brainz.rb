@@ -1,6 +1,5 @@
 class MusicBrainz
   require 'faraday'
-  require 'artist'
   require 'nokogiri'
   require 'open-uri'
   #require statement for settings is in the config/environment.rb
@@ -14,8 +13,9 @@ class MusicBrainz
     conn.get search_string
   end
   def self.search_artists_by_name(name)
-    response = MusicBrainz.fetch(''+ Settings.musicbrainz_artist_query_url + '"' + name +'"')
-
+   response =  MusicBrainz.fetch(''+ Settings.musicbrainz_artist_query_url + '"' + name +'"&fmt=json')
+   ActiveSupport::JSON.decode(response.body)
+=begin
     #TODO rewrite this using JSON
     xml = Nokogiri::XML(response.body)
     xml.remove_namespaces!
@@ -52,6 +52,30 @@ class MusicBrainz
       artists.push(myartist)
     end
     artists
+=end
+  end
+  def self.get_artist_by_mbid(id)
+    response =  MusicBrainz.fetch(''+ Settings.musicbrainz_artist_by_mbid + '"' + id +'"&fmt=json')
+    json = ActiveSupport::JSON.decode(response.body)
+    json_artist = json['artist'][0]
+    artist = UserArtist.new(
+                        :mbid => json_artist['id'],
+                        :name => json_artist['name'],
+                        :artist_type => json_artist['type'],
+                        :country_name => json_artist['area'].nil? ? '' : json_artist['area']['name'],
+                        :country_id => json_artist['area'].nil? ? nil : json_artist['area']['id'],
+                        :area_name => json_artist['begin-area'].nil? ? '' : json_artist['begin-area']['name'],
+                        :area_id => json_artist['begin-area'].nil? ? '' : json_artist['begin-area']['id']
+                        )
+
+    if json_artist['tags'].nil?
+      artist.genres_attributes = ''
+    else
+      json_artist['tags'].each do |t|
+        artist.genres.build(:tag => t['name'])
+      end
+    end
+    artist
   end
   def get_all_release_groups(artist_id, type)
     #call fetch method
@@ -60,5 +84,4 @@ class MusicBrainz
   def get_release_group(group_id)
     #call fetch
   end
-
 end
