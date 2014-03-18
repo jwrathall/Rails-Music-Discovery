@@ -13,15 +13,14 @@ musicApp.config([
 musicApp.controller('searchResultsController',
     function($scope, $http, dialogFactory){
         $scope.saveArtist = function(data){
-            console.log(angular.toJson(data));
             var artist = data;
             $http({method: 'POST', url: '/user/save_artist', data: {'mbid':data}, headers: {'Content-Type':'application/json'}}).
                 success(function(data, status, headers, config) {
                     console.log(data );
-                    /*if(data.success === true){
+                    if(data.success === true){
                         var modalContent = {
                             title: 'Artist Saved',
-                            artist: artist.name,
+                            artist: '',
                             message: 'has been saved to your catalog',
                             icon: 'check'
                         }
@@ -34,7 +33,7 @@ musicApp.controller('searchResultsController',
                         }
                     }
 
-                    dialogFactory.notify(modalContent);*/
+                    dialogFactory.notify(modalContent);
                 }).
                 error(function(data, status, headers, config) {
                     console.log(data, status);
@@ -43,6 +42,39 @@ musicApp.controller('searchResultsController',
                     }
                     dialogFactory.notify(modalContent);
                 });
+        }
+    }
+);
+
+musicApp.controller('releasesController',
+    function($scope, $http, dialogFactory){
+        $scope.saveArtist = function(data){
+         $http({method:'POST', url: '/user/save_artist', data: {'mbid':data}, headers: {'Content-Type':'application/json'}}).
+             success(function(data, status, headers, config){
+                 if(data.success === true){
+                     var modalContent = {
+                         title: 'Artist Saved',
+                         artist: '',
+                         message: 'has been saved to your catalog',
+                         icon: 'check'
+                     }
+                 }else{
+                     var modalContent = {
+                         title: data.error,
+                         artist:'',
+                         message: data.message,
+                         icon: 'cancel'
+                     }
+                 }
+
+                 dialogFactory.notify(modalContent);
+             }).
+             error(function(data, status, header, config){
+                 var modalContent = {
+                     title: 'Error Adding Artist', artist: '', message: 'There has been an error adding that artist.', icon: 'error'
+                 }
+                 dialogFactory.notify(modalContent);
+             });
         }
     }
 );
@@ -85,13 +117,7 @@ musicApp.controller('catalogController',
     }
 );
 
-musicApp.controller('releasesController',
-    function($scope, $http, $resource){
-        $scope.saveArtist = function(data){
 
-        }
-    }
-);
 
 musicApp.controller('modalController',
     function($scope, $modalInstance, returnData){

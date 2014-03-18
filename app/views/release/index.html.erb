@@ -1,6 +1,19 @@
 <div class="container">
   <div class="jumbotron jumbotron-releases">
-    <h1><%=@artist_name%></h1>
+    <div class="row">
+      <div class="col-md-1 col-sm-1">
+        <div style="margin-top: 30px;">
+          <%=link_to releases_path({:id => @mbid}) do%>
+              <div class="icomatic" style="font-size:30px;padding-bottom:10px;"><span>backlight</span></div>
+          <%end%>
+        </div>
+
+      </div>
+      <div class="col-md-11 col-sm-11 col-xs-12">
+        <h1><%=@artist_name%></h1>
+        <p class="highlight"><%=@release_name%></p>
+      </div>
+    </div>
   </div>
 
 

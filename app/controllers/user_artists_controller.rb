@@ -39,7 +39,7 @@ class UserArtistsController < ApplicationController
     message = ''
     error = ''
 
-    if session[:user_id] == nil
+    if session[:user_id] != nil
       original_artist = UserArtist.get_by_mbid(params[:mbid])
       if !original_artist.nil?
         artist = original_artist.dup
@@ -50,19 +50,31 @@ class UserArtistsController < ApplicationController
           end
           message = 'Saved artists'
           error = 'none'
+          success = true
         else
-          message = 'Artist not saved'
+          message = artist.errors
           error = 'not saved'
         end
       else
         artist = MusicBrainz.get_artist_by_mbid(params[:mbid])
-        artist.save
+        artist.user_id = session[:user_id]
+        if artist.save
+          message = 'Artist saved'
+          error = 'none'
+          success = true
+        else
+          message = artist.errors.message
+          error = 'not saved'
+          success = false
+        end
       end
     else
-
+      success = false
+      message = 'User must be logged in to save artist'
+      error = 'Used must login'
     end
     response = {:success => success,
-                :message => artist,
+                :message => message,
                 :error => error
     }
     render json:  response

@@ -2,7 +2,10 @@
   <div class="jumbotron jumbotron-releases" ng-controller="releasesController">
     <div class="row">
       <div class="col-md-1 col-sm-1">
-        <div class="icomatic" style="font-size:30px;padding-top:30px;"><span>save</span></div>
+        <div style="margin-top: 30px;">
+          <save-artist event="saveArtist('<%=@arid%>')"></save-artist>
+        </div>
+
       </div>
       <div class="col-md-11 col-sm-11 col-xs-12">
         <h1><%=@band_name%></h1>
@@ -77,7 +80,7 @@
 
                 <div class="row" style="margin-bottom: 2px;">
                   <div class="col-md-10">
-                    <%= link_to release_path({:release => release[:title], :artist => @band_name}) do%>
+                    <%= link_to release_path({:release => release[:title], :artist => @band_name,:mbid => @arid}) do%>
                     <div style="width:auto; float:left;">
                         <p class="name-md"><%=release[:title]%></p>
                     </div>

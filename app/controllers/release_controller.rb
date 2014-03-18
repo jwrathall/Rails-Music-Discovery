@@ -4,6 +4,7 @@ class ReleaseController < ApplicationController
   def index
     @release_name = params['release']
     @artist_name = params['artist']
+    @mbid = params['mbid']
     @release_name_dash = @release_name.gsub(/\s+/, '-')
     @artist_name_dash = @artist_name.gsub(/\s+/, '-')
 
