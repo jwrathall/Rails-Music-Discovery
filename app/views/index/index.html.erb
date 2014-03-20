@@ -5,6 +5,9 @@
       <%= render 'form' %>
     </div>
   </div>
-<%=@response['releases']%>
+  <% @response['releases'].each_with_index do |release, index| %>
+    <%=release['artist-credit'][0]['artist']['name']%>
+    <%=release['title']%> </br>
+  <%end%>
 </div>
 
