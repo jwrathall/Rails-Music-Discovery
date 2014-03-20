@@ -5,9 +5,40 @@
       <%= render 'form' %>
     </div>
   </div>
-  <% @response['releases'].each_with_index do |release, index| %>
-    <%=release['artist-credit'][0]['artist']['name']%>
-    <%=release['title']%> </br>
-  <%end%>
+  <div class="row">
+    <div class="col-xs-12 col-md-12">
+      <div class="row">
+        <% @response['releases'].each_with_index do |release, index| %>
+            <% if index % 2 == 0 && index != 0%>
+                </div>
+                <div class="row">
+            <%end%>
+            <div class="col-md-6">
+              <div class="well well-sm well-release">
+
+                <div class="row">
+                  <div class="col-md-1 col-sm-1">
+                    <save-artist event="saveArtist('<%=release['artist-credit'][0]['artist']['id']%>')"></save-artist>
+                  </div>
+                  <div class="col-md-9 col-sm-9 col-xs-12">
+                    <%= link_to releases_path({:id => release['artist-credit'][0]['artist']['id']}) do%>
+                        <div style="width:auto; float:left;">
+                          <p class="name-lg"><%= release['artist-credit'][0]['artist']['name']%></p>
+                        </div>
+                        <div class='icomatic' style="float:left; display:inline;font-size:20px; margin:10px 0 0 10px;"><span>search</span></div>
+                    <%end%>
+                    <%=release['title']%> </br>
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+
+        <%end%>
+      </div>
+    </div>
+  </div>
+
 </div>
 
