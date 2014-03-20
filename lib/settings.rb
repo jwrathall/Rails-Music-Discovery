@@ -17,6 +17,10 @@ class Settings
     get_string_setting('musicbrainz_release_query')
   end
 
+  def Settings.musicbrainz_releases_by_date
+    get_string_setting('musicbrainz_releases_by_date')
+  end
+
   def Settings.last_fm_api
     get_string_setting('last_fm_api_key')
   end

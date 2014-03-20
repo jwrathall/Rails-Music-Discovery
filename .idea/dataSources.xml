@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" hash="378320328">
-    <data-source source="LOCAL" name="Rails dev.music.com: development" product="PostgreSQL" version="9.3.2" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.2 JDBC4 (build 1002)" uuid="7e45640d-2833-4818-bffa-1bd632ee6d7e">
-      <identifier-quote-string>&quot;</identifier-quote-string>
+    <data-source source="LOCAL" name="Rails dev.music.com: development" uuid="7e45640d-2833-4818-bffa-1bd632ee6d7e">
+      <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql:dev_music</jdbc-url>
       <libraries>
@@ -14,7 +14,8 @@
         </library>
       </libraries>
     </data-source>
-    <data-source source="LOCAL" name="Rails dev.music.com: test" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="c0e5ed76-4254-46c7-beaf-cceb30d70c9a">
+    <data-source source="LOCAL" name="Rails dev.music.com: test" uuid="c0e5ed76-4254-46c7-beaf-cceb30d70c9a">
+      <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql:test_music</jdbc-url>
       <libraries>
@@ -26,7 +27,8 @@
         </library>
       </libraries>
     </data-source>
-    <data-source source="LOCAL" name="Rails dev.music.com: production" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="f8643255-65fe-49b6-880c-dd6929703e64">
+    <data-source source="LOCAL" name="Rails dev.music.com: production" uuid="f8643255-65fe-49b6-880c-dd6929703e64">
+      <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql:music</jdbc-url>
       <libraries>

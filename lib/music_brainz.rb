@@ -84,4 +84,9 @@ class MusicBrainz
   def get_release_group(group_id)
     #call fetch
   end
+
+  def self.get_new_releases date
+    response = MusicBrainz.fetch(''+ Settings.musicbrainz_releases_by_date + '"' + date +'"&fmt=json')
+    ActiveSupport::JSON.decode(response.body)
+  end
 end
