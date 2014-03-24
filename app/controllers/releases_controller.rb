@@ -3,6 +3,7 @@ class ReleasesController < ApplicationController
   require 'faraday'
   require 'nokogiri'
   require 'open-uri'
+  require 'last_fm'
 
   def index
      #http://musicbrainz.org/ws/2/artist/?query=arid:7527f6c2-d762-4b88-b5e2-9244f1e34c46&fmt=json
@@ -11,16 +12,10 @@ class ReleasesController < ApplicationController
     @year =  Time.now.strftime('%Y')
     @arid = params['id']
 
-    conn_lf = Faraday.new(:url => Settings.last_fm_url) do |faraday|
-      faraday.request  :url_encoded             # form-encode POST params
-      faraday.response :logger                  # log requests to STDOUT
-      faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
-    end
+    myvar = LastFm.get_artist_detail_by_id(params['id'])
 
-    lf = conn_lf.get ''+ '?method=artist.getinfo&mbid=' + params['id'] + '&api_key=' + Settings.last_fm_api + '&format=json'
+    #TODO move all this into a hash
 
-
-    myvar = ActiveSupport::JSON.decode(lf.body)
     @band_name =  myvar['artist']['name']
     @on_tour  = myvar['artist']['ontour']
 

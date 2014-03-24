@@ -18,7 +18,9 @@
 
                 <div class="row">
                   <div class="col-md-1 col-sm-1">
-                    <save-artist event="saveArtist('<%=release['artist-credit'][0]['artist']['id']%>')"></save-artist>
+                    <div style="margin-top:10px;">
+                        <save-artist event="saveArtist('<%=release['artist-credit'][0]['artist']['id']%>')"></save-artist>
+                    </div>
                   </div>
                   <div class="col-md-9 col-sm-9 col-xs-12">
                     <%= link_to releases_path({:id => release['artist-credit'][0]['artist']['id']}) do%>
@@ -27,10 +29,12 @@
                         </div>
                         <div class='icomatic' style="float:left; display:inline;font-size:20px; margin:10px 0 0 10px;"><span>search</span></div>
                     <%end%>
-                    <%=release['title']%> </br>
+                    <div>
+                      <%= link_to release_path(:artist => release['artist-credit'][0]['artist']['name'], :mbid => release['artist-credit'][0]['artist']['id'], :release => release['title']) do%>
+                        <%=release['title']%> </br>
+                      <%end%>
+                    </div>
                   </div>
-
-
                 </div>
               </div>
             </div>

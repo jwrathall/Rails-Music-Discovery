@@ -3,7 +3,6 @@ class IndexController < ApplicationController
   def index
     tuesday = Date.today.beginning_of_week(:tuesday).strftime('%Y-%m-%d')
     @response = MusicBrainz.get_new_releases tuesday
-       @doc = ''
     #http://www.lucenetutorial.com/lucene-query-syntax.html for date range searching
     #http://lucene.apache.org/core/2_9_4/queryparsersyntax.html#+
     #might need something like this
