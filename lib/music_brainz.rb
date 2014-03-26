@@ -86,7 +86,23 @@ class MusicBrainz
   end
 
   def self.get_new_releases (date)
-    response = MusicBrainz.fetch(''+ Settings.musicbrainz_releases_by_date + '"' + date +'"&fmt=json')
-    ActiveSupport::JSON.decode(response.body)
+    #initially used json but musicbrainz changed it and it broke everything, back to xml
+    #response = MusicBrainz.fetch(''+ Settings.musicbrainz_releases_by_date + '"' + date +'"&fmt=json')
+    response = MusicBrainz.fetch(''+ Settings.musicbrainz_releases_by_date + date)
+    xml = Nokogiri::XML(response.body)
+    xml.remove_namespaces!
+    releases = Array.new
+    xml.xpath('//metadata//release-list//release').each do |release|
+      r = {
+            :id => release.attribute('id').text,
+            :title => release.xpath('title').text,
+            :type => release.xpath('release-group/primary-type').text,
+            :artist_id => release.xpath('artist-credit/name-credit/artist').attribute('id').text,
+            :artist_name => release.xpath('artist-credit/name-credit/artist/name').text,
+            :label => release.xpath('label-info-list/label-info/name').text
+          }
+      releases.push(r)
+    end
+    releases
   end
 end

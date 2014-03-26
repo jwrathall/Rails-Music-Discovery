@@ -12,27 +12,6 @@ class ReleasesController < ApplicationController
     @year =  Time.now.strftime('%Y')
 
     @artist = LastFm.get_artist_detail_by_id(params['id'])
-
-=begin
-    <%@formation.each_with_index do |date, i| %>
-              <%if @is_array%>
-    <%if date['yearto'] == ''%>
-    <%yearto = 'present'%>
-    <%else%>
-                      <%yearto = date['yearto']%>
-    <%end%>
-    <%=date['yearfrom']%> - <%=yearto%> <%=', ' unless i == @formation.length-1%>
-    <%else%>
-                  <%if date[1]['yearto'] == ''%>
-  <%yearto = 'present'%>
-      <%else%>
-                      <%yearto = date[1]['yearto']%>
-  <%end%>
-  <%=date[1]['yearfrom']%> - <%=yearto%>
-  <%end%>
-<%end%>
-=end
-
     #replace below with this: http://musicbrainz.org/ws/2/release-group/?query=arid:7527f6c2-d762-4b88-b5e2-9244f1e34c46&fmt=json
 
 

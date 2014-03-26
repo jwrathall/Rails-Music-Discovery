@@ -22,18 +22,25 @@
             </div>
         <%end%>
         <p class="detail-sm">
-            <%if @artist['date_formed'].is_a? Array%>
+          <%if @artist['date_formed'].nil?%>
+              <%if @artist['date_formed'].is_a? Array%>
 
-            <%else%>
-              <%= @artist['date_formed']['formation']['yearfrom'].nil? ? 'the past' : ''%> -
-              <%= @artist['date_formed']['formation']['yearto'].blank? ? 'present': @artist['date_formed']['formation']['yearto']%>
-            <%end%>
+              <%else%>
+
+                      <%= @artist['date_formed']['formation']['yearfrom'].nil? ? 'the past' : ''%> -
+                      <%= @artist['date_formed']['formation']['yearto'].blank? ? 'present': @artist['date_formed']['formation']['yearto']%>
+
+              <%end%>
+          <%end%>
+
         </p>
 
       <div class="row">
         <div class="col-md-6 tags highlight">
-          <%@artist['tags'].each_with_index do |tag, i|%>
-              <%=tag['name']%><%=',  ' unless i == @artist['tags'].length-1%>
+          <%unless @artist['tags'].nil? || @artist['tags'] == ''%>
+              <%@artist['tags'].each_with_index do |tag, i|%>
+                  <%=tag['name']%><%=',  ' unless i == @artist['tags'].length-1%>
+              <%end%>
           <%end%>
         </div>
       </div>

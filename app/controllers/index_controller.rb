@@ -16,3 +16,4 @@ class IndexController < ApplicationController
     render :search_results
   end
 end
+
