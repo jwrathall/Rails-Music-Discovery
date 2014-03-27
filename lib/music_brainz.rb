@@ -81,8 +81,28 @@ class MusicBrainz
     #call fetch method
   end
 
-  def get_release_group(group_id)
-    #call fetch
+  def self.get_release_groups(mbid)
+    response = MusicBrainz.fetch(''+ Settings.musicbrainz_release_query + mbid)
+    xml = Nokogiri::XML(response.body)
+    xml.remove_namespaces!
+    releases = Array.new
+    xml.xpath('//release-group-list//release-group').each do |release|
+      date = release.xpath('first-release-date').text().to_s
+      unless date.empty?
+        rel_month = date[5..6]
+        rel_year = date[0..3]
+      else
+        rel_year = ''
+      end
+      r = { :id => release.attribute('id').text(),
+            :type => release.attribute('type').text(),
+            :title => release.xpath('title').text(),
+            :release_month => rel_month,
+            :release_year => rel_year
+      }
+      releases.push(r)
+    end
+    releases.sort_by { |hsh| hsh[:release_year] || '0'}.reverse
   end
 
   def self.get_new_releases (date)

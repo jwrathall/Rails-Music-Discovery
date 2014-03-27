@@ -14,20 +14,24 @@
             <div class="row">
               <div class="col-md-12">
                 <ul class="members">
-                  <%@artist['members'].each_with_index do |member, i|%>
-                      <li><%=member['name'].to_s%><%=', ' unless i == @artist['members'].length-1%></li>
+                  <%if @artist['members'].is_a? Array%>
+                      <%@artist['members'].each_with_index do |member, i|%>
+                          <li><%=member['name'].to_s%><%=', ' unless i == @artist['members'].length-1%></li>
+                      <%end%>
+                  <%else%>
+                      <%=@artist['members']['name']%>
                   <%end%>
                 </ul>
               </div>
             </div>
         <%end%>
         <p class="detail-sm">
-          <%if @artist['date_formed'].nil?%>
+          <%unless @artist['date_formed'].empty?%>
               <%if @artist['date_formed'].is_a? Array%>
 
               <%else%>
 
-                      <%= @artist['date_formed']['formation']['yearfrom'].nil? ? 'the past' : ''%> -
+                      <%= @artist['date_formed']['formation']['yearfrom'].nil? ? 'the past' : @artist['date_formed']['formation']['yearfrom']%> -
                       <%= @artist['date_formed']['formation']['yearto'].blank? ? 'present': @artist['date_formed']['formation']['yearto']%>
 
               <%end%>
@@ -76,7 +80,7 @@
 
                 <div class="row" style="margin-bottom: 2px;">
                   <div class="col-md-10">
-                    <%= link_to release_path({:release => release[:title], :artist => @band_name,:mbid => @arid}) do%>
+                    <%= link_to release_path({:release => release[:title], :artist => @artist['name'],:mbid => @artist['id']}) do%>
                     <div style="width:auto; float:left;">
                         <p class="name-md"><%=release[:title]%></p>
                     </div>
@@ -96,6 +100,5 @@
     </div>
   </div>
 </div>
- <%=@artist%>
-  <%=@error%>
+
 </div>
