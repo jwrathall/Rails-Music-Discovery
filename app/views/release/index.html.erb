@@ -3,15 +3,15 @@
     <div class="row">
       <div class="col-md-1 col-sm-1">
         <div style="margin-top: 30px;">
-          <%=link_to releases_path({:id => @mbid}) do%>
+          <%=link_to releases_path({:id => @r[:mbid]}) do%>
               <div class="icomatic" style="font-size:30px;padding-bottom:10px;"><span>backlight</span></div>
           <%end%>
         </div>
 
       </div>
       <div class="col-md-11 col-sm-11 col-xs-12">
-        <h1><%=@artist_name%></h1>
-        <p class="highlight"><%=@release_name%></p>
+        <h1><%=@r[:artist]%></h1>
+        <p class="highlight"><%=@r[:release_name]%></p>
       </div>
     </div>
   </div>
@@ -20,14 +20,14 @@
       <div class='well well-lg'>
         <div class="row">
           <div class="col-lg-2 col-md-3 col-sm-4">
-            <img src='<%=@release.release_image%>'/>
+            <img src='<%=@r[:release_image]%>'/>
           </div>
           <div class="col-md-2 col-sm-4">
-            <p class="highlight"><%=@release.release_date.strftime('%B %d, %Y')%></p>
-            <p class="name-md"><%=@release.release_name%></p>
+            <p class="highlight"><%=@r[:release_date].strftime('%B %d, %Y')%></p>
+            <p class="name-md"><%=@r[:release_name]%></p>
           </div>
           <div class="col-md-6 col-sm-4">
-            <%@release.tracks.each do |t|%>
+            <%@r[:tracks].each do |t|%>
                 <%=t.name%>&nbsp;
                 <em><%=t.duration_in_minutes%></em>
                 </br>
@@ -36,13 +36,13 @@
         </div>
         <div class="row">
           <div class="col-md-2">
-            <%= link_to 'http://www.7digital.com/artist/'+ @artist_name_dash +'/release/'+ @release_name_dash, :target => '_blank' do%>
+            <%= link_to 'http://www.7digital.com/artist/'+ @r[:artist_url_friendly] +'/release/'+ @r[:release_name_url_friendly], :target => '_blank' do%>
                 <div class='icomatic' style="display:inline;font-size:14px; margin:0 0 0 10px;"><span>cart</span>&nbsp;<span>7digital</span></div>
             <%end%>
 
           </div>
           <div class="col-md-2">
-            <%=link_to 'http://www.amazon.com/gp/search?ie=UTF8&keywords='+ @artist_name +'%20'+ @release_name, :target => '_blank' do%>
+            <%=link_to 'http://www.amazon.com/gp/search?ie=UTF8&keywords='+ @r[:artist] +'%20'+ @r[:release_name], :target => '_blank' do%>
             <div class='icomatic' style="display:inline;font-size:14px; margin:0 0 0 10px;"><span>cart</span>&nbsp;<span>Amazon</span></div>
             <%end%>
           </div>

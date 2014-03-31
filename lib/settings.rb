@@ -29,6 +29,10 @@ class Settings
     get_string_setting('last_fm_url')
   end
 
+  def Settings.last_fm_release_info
+    get_string_setting('last_fm_release_info')
+  end
+
   def Settings.get_string(value)
     get_string_setting(value.to_s)
   end

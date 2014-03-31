@@ -1,9 +1,16 @@
 class LastFm
   require 'faraday'
   require 'open-uri'
+  require 'track'
+
   #require statement for settings is in the config/environment.rb
 
-
+  def self.encode_artist_name(artist_name)
+    artist_name.gsub(/\s+/, '-')
+  end
+  def self.encode_release_name(release_name)
+    release_name.gsub(/\s+/, '-')
+  end
   def self.fetch (search_string)
     conn = Faraday.new(:url => Settings.last_fm_url) do |faraday|
       faraday.request  :url_encoded             # form-encode POST params
@@ -36,5 +43,41 @@ class LastFm
     artist['members'] = lf_artist['artist']['bandmembers'] ? lf_artist['artist']['bandmembers']['member'] : ''
 
     artist
+  end
+  def self.get_release(artist_name, release_name, mbid)
+
+    response = LastFm.fetch(Settings.last_fm_release_info+ 'artist=' + artist_name + '&album=' + release_name + '&api_key=' + Settings.last_fm_api + '&format=json')
+    json = ActiveSupport::JSON.decode(response.body)
+
+    tracks = Array.new
+    if json['album']['tracks']['track'].is_a? Array
+      json['album']['tracks']['track'].each do |t|
+        track = Track.new
+        track.name = t['name']
+        track.duration = t['duration']
+        track.mbid = t['mbid']
+        tracks.push(track)
+      end
+    else
+      track = Track.new()
+      track.name =  json['album']['tracks']['track']['name']
+      track.duration = json['album']['tracks']['track']['duration']
+      track.mbid = json['album']['tracks']['track']['mbid']
+      tracks.push(track)
+    end
+
+    {
+        :artist => artist_name,
+        :artist_url_friendly => encode_artist_name(artist_name),
+        :mbid => mbid,
+        :release_name => json['album']['name'],
+        :release_name_url_friendly => LastFm.encode_release_name(release_name),
+        :release_date => Time.parse(json['album']['releasedate']),
+        :release_mbid => json['album']['mbid'],
+        :release_id => json['album']['id'],
+        :release_image => json['album']['image'][2]['#text'],
+        :tracks => tracks
+
+    }
   end
 end
