@@ -1,8 +1,4 @@
 class ReleasesController < ApplicationController
-  require 'settings'
-  require 'faraday'
-  require 'nokogiri'
-  require 'open-uri'
   require 'last_fm'
 
   def index

@@ -80,4 +80,25 @@ class LastFm
 
     }
   end
+
+  def self.get_similar_artists(mbid)
+    response = LastFm.fetch(''+ Settings.get_string('last_fm_similar_artists') + '' + mbid + '&limit=20&api_key=' + Settings.last_fm_api + '&format=json')
+    json = ActiveSupport::JSON.decode(response.body)
+
+    artists = json['similarartists']['artist']
+    @artist_name = json['similarartists']['@attr']['artist']
+    all_artist = Array.new
+    artists.each do |artist|
+
+      art = SimilarArtist.new(
+          name = artist['name'],
+          mbid = artist['mbid'],
+          url = artist['url'],
+          match = artist['match']
+      )
+
+      all_artist.push(art)
+    end
+    @artists = all_artist
+  end
 end

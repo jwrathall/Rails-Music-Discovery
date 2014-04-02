@@ -19,7 +19,7 @@ class SimilarController < ApplicationController
 
     artists = json['similarartists']['artist']
     @artist_name = json['similarartists']['@attr']['artist']
-        all_artist = Array.new
+    all_artist = Array.new
     artists.each do |artist|
 
       art = SimilarArtist.new(
