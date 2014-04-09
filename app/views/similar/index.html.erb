@@ -4,14 +4,14 @@
       <div class="row">
         <div class="col-md-1 col-sm-1">
           <div style="margin-top: 30px;">
-            <%=link_to releases_path({:id => @mbid}) do%>
+            <%=link_to releases_path({:id => @artist[:mbid]}) do%>
                 <div class="icomatic" style="font-size:30px;padding-bottom:10px;"><span>backlight</span></div>
             <%end%>
           </div>
 
         </div>
         <div class="col-md-11 col-sm-11 col-xs-12">
-          <h1><%=@artist_name%></h1>
+          <h1><%=@artist[:name]%></h1>
           <p class="highlight"><span class="thin-title">Similar</span> Artists</p>
         </div>
       </div>
@@ -20,7 +20,7 @@
     <div class="row">
         <div class="col-xs-12 col-md-12">
             <div class="row">
-              <% @artists.each_with_index do |artist, index| %>
+              <% @artist[:similar_artists].each_with_index do |artist, index| %>
                   <% if index % 2 == 0 && index != 0%>
                       </div>
                       <div class="row">
@@ -29,9 +29,9 @@
                     <div class="well well-sm well-release">
                       <div class="row" style="margin-bottom: 2px;">
                         <div class="col-md-10">
-                          <%= link_to releases_path(:id => artist.mbid) do%>
+                          <%= link_to releases_path(:id => artist[:mbid]) do%>
                               <div style="width:auto; float:left;">
-                                <p class="name-md"><%=artist.name%></p>
+                                <p class="name-md"><%=artist[:name]%></p>
                               </div>
                               <div class='icomatic' style="float:left; display:inline;font-size:20px; margin:5px 0 0 10px;"><span>next</span></div>
                           <%end%>
@@ -40,7 +40,7 @@
                           <div style="float:right;">
                             <div style="margin-top: -5px;">
                                 <div>likeness</div>
-                                <span class="topcoat-notification" style="margin:0 0 0 8px;"><%=artist.match%></span>
+                                <span class="topcoat-notification" style="margin:0 0 0 8px;"><%=artist[:match]%></span>
                             </div>
                           </div>
                         </div>
