@@ -1,16 +1,16 @@
 == README
-My music app. The initial concept was to create a service that reminded the user if their fav band had an upcoming album.
-I always seem to miss album releases. 
-
-Now, the app has sort of morphed into a reminder service plus a music discovery service too. Things like bootlegs, album covers
+My music app. The initial concept was to create a service that reminded the user when their fav band had an upcoming album.
+I always seem to miss album releases. The app has sort of morphed into a reminder service plus a music discovery service too. Things like bootlegs, album covers
 etc.
 
-It uses musicbrainz.org as the search api. Later it will also use some other  music api's. One step at a time.
+This is a personal project for learning rails and angualr. 
 
+It uses musicbrainz.org as the search api and lastfm
 bootstrap 3,
 rails 4,
 ruby 2.1.0,
+postgres 9.3
 xpath,
 angular.js,
 topcoat.io
-<tt>rake doc:app</tt>.
+
