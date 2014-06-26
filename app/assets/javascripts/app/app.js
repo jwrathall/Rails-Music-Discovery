@@ -12,6 +12,7 @@ musicApp.config([
 
 musicApp.controller('searchResultsController',
     function($scope, $http, dialogFactory){
+        //investigate moving the save functionallity into a factory
         $scope.saveArtist = function(data){
             var artist = data;
             $http({method: 'POST', url: '/user/save_artist', data: {'mbid':data}, headers: {'Content-Type':'application/json'}}).
@@ -163,7 +164,8 @@ musicApp.directive('saveArtist',
                         e.preventDefault();
                         scope.event(attr.event);
                     }
-                );
+                )
+                .bind('mouseover',function(e){el.css('cursor','pointer')});
             }
         }
     }
@@ -187,7 +189,7 @@ musicApp.directive('removeArtist',
                         e.preventDefault();
                         scope.event(scope.model);
                     }
-                );
+                ).bind('mouseover',function(e){el.css('cursor','pointer')});
             }
         }
     }
